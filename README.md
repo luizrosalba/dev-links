@@ -26,6 +26,8 @@ This command generates static content into the `build` directory and can be serv
 
 ### Deployment
 
+Deployed using Vercel ! 
+
 Using SSH:
 
 ```
