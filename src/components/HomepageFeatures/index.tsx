@@ -1,6 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import styles from './styles.module.css';
+import Link from '@docusaurus/Link';
 
 type FeatureItem = {
   title: string;
@@ -10,35 +11,23 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    title: 'Link Tool',
+    Svg: require('@site/static/img/links.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        A context driven solution for finding good links on web development
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    title: 'Blog',
+    Svg: require('@site/static/img/blog.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        Content for developers. Find some good posts, tutorials and more ! 
       </>
     ),
-  },
-  {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
-    description: (
-      <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
-      </>
-    ),
-  },
+  }
 ];
 
 function Feature({title, Svg, description}: FeatureItem) {
@@ -59,6 +48,10 @@ export default function HomepageFeatures(): JSX.Element {
   return (
     <section className={styles.features}>
       <div className="container">
+      <strong>Hello Devs !</strong>
+      <br></br>
+     Dev Links is built using <Link href=' https://docusaurus.io/' >Docusaurus </Link>
+     and consists in a blog and searchable link tool. Please select where to go: 
         <div className="row">
           {FeatureList.map((props, idx) => (
             <Feature key={idx} {...props} />
