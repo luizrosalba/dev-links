@@ -50,7 +50,7 @@ export default function HomepageFeatures(): JSX.Element {
       <div className="container">
       <strong>Hello Devs !</strong>
       <br></br>
-     Dev Links is built using <Link href=' https://docusaurus.io/' >Docusaurus </Link>
+     Dev Links is built using <Link href='https://docusaurus.io/' >Docusaurus </Link>
      and consists in a blog and searchable link tool. Please select where to go: 
         <div className="row">
           {FeatureList.map((props, idx) => (
