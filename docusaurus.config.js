@@ -8,7 +8,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'Dev Links',
   tagline: 'Links for Devs',
-  url: 'https://your-docusaurus-test-site.com',
+  url: 'https://dev-links-seven.vercel.app/',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
