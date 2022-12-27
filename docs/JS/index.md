@@ -1,5 +1,12 @@
 # Javascript 
 
+## Documents 
+
+[https://www.w3schools.com/js/default.asp](https://www.w3schools.com/js/default.asp)
+
+## Basic Concepts 
+
+[Basic](https://www-freecodecamp-org.cdn.ampproject.org/c/s/www.freecodecamp.org/news/javascript-concepts-you-should-know-before-learning-react/amp/)
 ## Tips 
 
 ### Number to string 
