@@ -9,7 +9,17 @@ Lightweight, scalable animations
 
 400.000+ Open Licensed SVG Vector and Icons
 
+## Free Images
+
+[https://unsplash.com/](https://unsplash.com/)
+
+[https://burst.shopify.com/](https://burst.shopify.com/)
+
+[https://www.pexels.com/pt-br/](https://www.pexels.com/pt-br/)
+
 ## Svg
+
+Svg can be used as small animations or icons 
 
 [Svg Repo](https://www.svgrepo.com/)
 
