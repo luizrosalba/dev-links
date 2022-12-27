@@ -1,21 +1,16 @@
 # Testing Tools
 
-Documents are **groups of pages** connected through:
+Testing make software trustable ! 
 
-- a **sidebar**
-- **previous/next navigation**
-- **versioning**
+## Jest 
 
-## Create your first Doc
 
-Create a Markdown file at `docs/hello.md`:
+## React Testing Library 
 
-```md title="docs/hello.md"
-# Hello
 
-This is my **first Docusaurus document**!
-```
+## Cypress 
 
-A new document is now available at [http://localhost:3000/docs/hello](http://localhost:3000/docs/hello).
+
+
 
 
