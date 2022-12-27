@@ -11,3 +11,7 @@ w3schools docs
 
 https://www.w3schools.com/html/default.asp
 
+
+Tags 
+
+[https://allthetags.com/](https://allthetags.com/)
