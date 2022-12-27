@@ -6,7 +6,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Dev Links',
+  title: 'Dev Links 7',
   tagline: 'Links for Devs',
   url: 'https://dev-links-seven.vercel.app/',
   baseUrl: '/',
@@ -81,7 +81,7 @@ const config = {
       footer: {
         style: 'dark',
         
-        copyright: `Created at ${new Date().getFullYear()} Maintained by luizrosalba@gmail.com - Dev Links Built with Docusaurus.`,
+        copyright: `Created at ${new Date().getFullYear()} Maintained by luizrosalba@gmail.com - Dev Links 7 Built with Docusaurus.`,
       },
       prism: {
         theme: lightCodeTheme,
