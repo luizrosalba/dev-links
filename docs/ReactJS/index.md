@@ -21,3 +21,6 @@ React is a JavaScript library for building user interfaces
 
  [Theme  UI](https://theme-ui.com/)
 
+## Best Practices 
+
+[freeCodeCamp](https://www-freecodecamp-org.cdn.ampproject.org/c/s/www.freecodecamp.org/news/best-practices-for-react/amp/)
