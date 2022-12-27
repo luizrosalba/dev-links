@@ -1,6 +1,3 @@
----
-sidebar_position: 2
----
 
 # React
 
@@ -21,6 +18,6 @@ React is a JavaScript library for building user interfaces
  [Semantic UI React](https://react.semantic-ui.com/)
 
  [Chakra UI](https://chakra-ui.com/)
- 
+
  [Theme  UI](https://theme-ui.com/)
 
