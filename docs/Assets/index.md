@@ -38,3 +38,7 @@ Svg can be used as small animations or icons
 [jhoward](https://codepen.io/jhoward/pen/AgEYGj)
 
 [More](https://bashooka.com/coding/resources-for-downloading-free-animated-svg-icons/)
+
+## Fonts and Icons 
+
+[https://fonts.google.com/](https://fonts.google.com/)
