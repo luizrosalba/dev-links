@@ -5,3 +5,5 @@
 
 ![VscodeShortcuts](https://previews.dropbox.com/p/thumb/ABwyPx3-tbTXS3aQVN1HC55glZ6pXJaOk7qbrCDtHa3BLB0jv_AulWAtBmmhSQdU19ZeSjNd0SNXk_s9pIHXvyfm5F3ACUt77lZpFZL74olrpFogTDYXk_aCdBgA58c44VnLt_BKGAZMWtGHqUsqXTEy_4jX8sg-piN0-SWHFEPDFpZF4JBJeN02lKlUoeg51KGb5V93THrad1dcdep5rVSesGoxrustkqaP-rDNnkV3dx4DWJ3THkORDOf3zyv4_ywWlbu4YQagR2IqRbFaHI-AdlqAQzw0UXOEs1nDhyvgxX5-PEx6PDfkq7L110tURwKjeLx6CwlPlBSWXaaL8HXN4zsxklAGkTcvAAbR5j2L-yNKBCbFhvqqgLly2zr1w18/p.png)
 ## Extensions 
+
+[Json Crack](https://marketplace.visualstudio.com/items?itemName=AykutSarac.jsoncrack-vscode)
