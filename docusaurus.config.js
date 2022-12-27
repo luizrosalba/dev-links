@@ -58,7 +58,7 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: 'Dev Links',
+        title: 'Dev Links 7',
         logo: {
           alt: 'Dev Links Logo',
           src: 'img/logo.svg',
