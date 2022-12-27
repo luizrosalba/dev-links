@@ -1,0 +1,5 @@
+# Methods 
+
+## Array 
+
+![Array Examples](https://previews.dropbox.com/p/thumb/ABzS8U531QvRw1-XZMIUebM3KZeGGddEP1qlLjbFGd7-Gtbv2QGxVt0skRz6do-XIY0ADzO4U4cjZrXvDQCFFmTCIrP5gVL1pu6R3bSRm5Kgej0IhjGwQaGWOREXmaKXftEDOZLZB8faqyopAglnH_9N1saxTE0nRDCreyT3pNbX2I_BZthgG7sZ4JIYI4s2H5umdq-GhgdYEGBJ-C56oNnqc5pQAp1Z4I9wCr_PvjKe9Oy31v7OVwVwzoJw5nud9-xM_KCW7dQwiEeNDWrsnKHrSMsFaXtUn9QOUTtK2rMm0NJASviKET6_eK1agwdS3Xct3p4hFeTQgJ884EMl5wqVlyas6lM8mo-otqFN-oeis17iFqOcbNbw1ih1Ypn0Clw/p.png)
