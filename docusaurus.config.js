@@ -70,7 +70,15 @@ const config = {
       },
       footer: {
         style: 'dark',
-        
+        links: [
+          {
+            html: `Did I help ? Buy me a
+                <a href="https://www.buymeacoffee.com/luizrosalba" target="_blank" rel="noreferrer noopener" aria-label="Buy me a coffe">
+                   ☕
+                </a>
+              `,
+          },
+        ],
         copyright: `Created at ${new Date().getFullYear()} Maintained by luizrosalba@gmail.com - Dev Links 7 Built with Docusaurus.`,
       },
       prism: {
