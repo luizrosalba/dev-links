@@ -61,6 +61,7 @@ const config = {
             label: 'Links',
           },
           {to: '/blog', label: 'Blog', position: 'left'},
+          {to: 'https://www.buymeacoffee.com/luizrosalba', label: '☕', position: 'left'},
           {
             href: 'https://github.com/luizrosalba',
             label: 'GitHub',
