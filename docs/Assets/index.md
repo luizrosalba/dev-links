@@ -8,6 +8,7 @@ Lightweight, scalable animations
 
 400.000+ Open Licensed SVG Vector and Icons
 
+[https://www.svgrepo.com/](https://www.svgrepo.com/)
 ## Images
 
 [https://unsplash.com/](https://unsplash.com/)
