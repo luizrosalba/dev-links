@@ -1,0 +1,2 @@
+# High Order Components (HOC)
+
