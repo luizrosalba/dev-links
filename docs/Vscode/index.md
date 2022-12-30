@@ -3,7 +3,7 @@
 
 ## Shortcuts 
 
-![VscodeShortcuts](https://ucfcc1763c2e61447919b10babfb.previews.dropboxusercontent.com/p/thumb/ABw_5h8AdR5KU-wgd2X_GwWt7VAoP6cLEKUQuJuwFJ2a63K_9KhS6odVFCN0WLOunyEkgfX1y2MQWAQcfW_dXcm63ijri37b-Ydmh4hLg-Brq0guT8O4WzU3y-sfOFdBKKqGvVLOp0KT86mxGi68z2wUzmdIQqLrAUiMrulyWlHfAajOCQHejvuNJYIjwib7q7fA8jr5iavrX9RvL8DMvxKn-skTpNxExt7g6ilu2jHwp34q10FQVLOvhid5cdfYFK5kQ3bumJsbVPDKXNkpdtH_XSCVqMtvHNzSOUXisTWrnrPlJqscTjFGEBlS5c4ZdVHvJ4I2zvW1EFEb7i10aQr8Pa5TFxMLH0N3iZdvR6ExMvreXHbMPJUeJ8WXEpXSdDobXtLOuzUE-tErnMV1Ab-ykC9730s3jOMnbi2Y9O-vUA/p.png)
+![VscodeShortcuts](https://res.cloudinary.com/dmo37c7zy/image/upload/v1672401586/shortcuts_x2dq6l.png)
 ## Extensions 
 
 [Json Crack](https://marketplace.visualstudio.com/items?itemName=AykutSarac.jsoncrack-vscode)

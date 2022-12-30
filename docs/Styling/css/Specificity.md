@@ -4,4 +4,4 @@ Specificity is the algorithm used by browsers to determine the CSS declaration t
 [https://dev.to/taiwobello/css-specificity-3ik1](https://dev.to/taiwobello/css-specificity-3ik1)
 
 
-![cheatSheet](https://uc1b868abb910cdc905d21e56848.previews.dropboxusercontent.com/p/thumb/ABxYPR-PXJQ2M9LrYEpxkLnYJcBYsHjVVju4dbeBCLFY5H6QUN9AxpQa_EdSHHzyvvXkxqRAmt9lFOAwaOkmJjXNFAZnwjUCbqafIZ3CZsoWVl5cZwY8ie5VUvmFwaUcRD8cTiE876IsOJip5NEGoSxldcJBynU2EjbedPF0rYAjtKLhydDRnZ-enPQxcM8DjiuSNDeW2Pf3KadZsE0Cbh3xtAsfUt49n20w_3Hj2zM2flUpzJq1pg277oTaG3mFaM7Rq2KPFD8wMkk75Ud3FZ20ZILkCtcX0GEsJT5sjlSyBf9Z3yX_uVpIoI-MbE9Fj9_MRkloZlnkiEnNCOj4RZLq025vCD0BrthgPSPBmd7ARhs8XZuvbVGMsWLFINvSteMAaPrsi4OJ4oPUchXraRDCg5nRIDkq_0wD_wqYp12LoA/p.png)
+![cheatSheet](https://res.cloudinary.com/dmo37c7zy/image/upload/v1672401586/specificity_lwgr7r.png)
