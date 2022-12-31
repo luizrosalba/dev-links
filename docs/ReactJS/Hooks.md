@@ -6,7 +6,7 @@ Hooks allow you to reuse stateful logic without changing your component hierarch
 
 Hooks let you split one component into smaller functions based on what pieces are related (such as setting up a subscription or fetching data), rather than forcing a split based on lifecycle methods
 
-## useState
+## State Management - useState
 [UseState](https://codepen.io/luizrosalba/pen/zYLqjZR)
 
 ```jsx title='UseState Example'
@@ -25,7 +25,7 @@ function Example() {
 }
 ```
 
-## useReducer
+## State Management - useReducer
 
 useReducer is a React Hook that lets you add a reducer to your component.
 
@@ -61,7 +61,7 @@ export default function Counter() {
 }
 ```
 
-## useEffect
+## Handle side effects - useEffect
 [UseEffect](https://codepen.io/luizrosalba/pen/JjBXZoq?editors=1111)
 
 What does useEffect do? 
@@ -131,4 +131,13 @@ useEffect(() => {
 
 [Use Effect Pitfalls](https://beta.reactjs.org/learn/removing-effect-dependencies)
 
-## 
+
+## Handle side effects - useLayoutEffect
+
+Almost the same as useEffect, but fires synchronously after the render phase. Use  this to safely read from or write to the DOM
+
+## Context Management -  Context API
+
+## Optimization - Memoization
+
+## Use refs
