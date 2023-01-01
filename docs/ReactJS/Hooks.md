@@ -138,6 +138,46 @@ Almost the same as useEffect, but fires synchronously after the render phase. Us
 
 ## Context Management -  Context API
 
-## Optimization - Memoization
+## Optimization - useMemo
+
+useMemo is a React Hook that lets you cache the result of a calculation between re-renders.
+
+[useMemo Example](https://codepen.io/luizrosalba/pen/LYBZGwv?editors=1111)
+
+const cachedValue = useMemo(calculateValue, dependencies)
+
+[https://beta.reactjs.org/reference/react/useMemo](https://beta.reactjs.org/reference/react/useMemo)
+
+calculateValue: The function calculating the value that you want to cache. It should be pure (A React component is considered pure if it renders the same output for the same state and props), should take no arguments, and should return a value of any type. React will call your function during the initial render. On subsequent renders, React will return the same value again if the dependencies have not changed since the last render. Otherwise, it will call calculateValue, return its result, and store it in case it can be reused later.
+
+
+:::info
+
+In Strict Mode, React will call your calculation function twice in order to help you find accidental impurities. This is development-only behavior and does not affect production. If your calculation function is pure (as it should be), this should not affect the logic of your component. The result from one of the calls will be ignored.
+
+:::
+
+:::caution
+
+You should only rely on useMemo as a performance optimization. If your code doesn’t work without it, find the underlying problem and fix it first. Then you may add useMemo to improve performance.
+
+:::
+
+:::info
+This can help to check if its expensive
+```javascript
+console.time('filter array');
+const visibleTodos = filterTodos(todos, tab);
+console.timeEnd('filter array');
+```
+:::
+
+
+
+
+
+
+## Optimization - useCallback
+
 
 ## Use refs
