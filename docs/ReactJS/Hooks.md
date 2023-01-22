@@ -179,5 +179,51 @@ console.timeEnd('filter array');
 
 ## Optimization - useCallback
 
+useCallback is a React Hook that lets you cache a function definition between re-renders.
+
+const cachedFn = useCallback(fn, dependencies)
+
+Call useCallback at the top level of your component to cache a function definition between re-renders:
+
+```jsx title='UseCallback Example'
+import { useCallback } from 'react';
+
+export default function ProductPage({ productId, referrer, theme }) {
+  const handleSubmit = useCallback((orderDetails) => {
+    post('/product/' + productId + '/buy', {
+      referrer,
+      orderDetails,
+    });
+  }, [productId, referrer]);
+```
+
+## useCallback vs useMemo 
+
+You will often see useMemo alongside useCallback. They are both useful when you’re trying to optimize a child component. They let you memoize (or, in other words, cache) something you’re passing down:
+
+```jsx title='UseEffect vc useCallback Example'
+import { useMemo, useCallback } from 'react';
+
+function ProductPage({ productId, referrer }) {
+  const product = useData('/product/' + productId);
+
+  const requirements = useMemo(() => { // Calls your function and caches its result
+    return computeRequirements(product);
+  }, [product]);
+
+  const handleSubmit = useCallback((orderDetails) => { // Caches your function itself
+    post('/product/' + productId + '/buy', {
+      referrer,
+      orderDetails,
+    });
+  }, [productId, referrer]);
+
+  return (
+    <div className={theme}>
+      <ShippingForm requirements={requirements} onSubmit={handleSubmit} />
+    </div>
+  );
+}
+```
 
 ## Use refs

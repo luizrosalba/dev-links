@@ -2,7 +2,7 @@
 
 ## keep all functions from original module but with two functions mocked
 
-```Javascript
+```jsx title='Keep module change some funcions Example'
 jest.mock('./modulename', () => {
   const originalModule = jest.requireActual('./modulename');
   return {
@@ -16,7 +16,7 @@ jest.mock('./modulename', () => {
 
 ## Mocking a module and changing the value from the response 
 
-```Javascript
+```jsx title='Mocking a module'
 
 import { module } from './path-to-module';
 
@@ -54,10 +54,19 @@ describe('Testing Component', () => {
 
 Don't forget the await ahead of the act to render a async component, or your component will behave inconsistently , sometimes will resolve sometimes won't. 
 
-```Javascript
+```jsx title='Using async component with jest '
   await act(() => {
     render(
       <YourComponent>
     );
   });
+```
+
+## Mocking using spy.on 
+
+```jsx title='Mocking using spy.on '
+jest.spyOn(moduleCall(), 'functionName').mockReturnValue({
+  key: value
+});
+
 ```
