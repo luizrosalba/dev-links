@@ -8,6 +8,9 @@ TypeScript is a strongly typed programming language that builds on JavaScript, g
 
 [https://www.typescriptlang.org/play?#code/Q](https://www.typescriptlang.org/play?#code/Q)
 
+## CheatSheet 
+
+[https://www.typescriptlang.org/cheatsheets](https://www.typescriptlang.org/cheatsheets)
 ## Type x Interface
 
 Type aliases and interfaces are very similar, and in many cases you can choose between them freely. Almost all features of an interface are available in type, the key distinction is that a type cannot be re-opened to add new properties vs an interface which is always extendable.
