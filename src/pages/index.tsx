@@ -3,6 +3,7 @@ import clsx from 'clsx';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
+import { Analytics } from '@vercel/analytics/react';
 
 import styles from './index.module.css';
 
@@ -22,13 +23,16 @@ function HomepageHeader() {
 export default function Home(): JSX.Element {
   const {siteConfig} = useDocusaurusContext();
   return (
-    <Layout
-      title={`${siteConfig.title}`}  
-      description="A website for good dev links">
-      <HomepageHeader />
-      <main>
-        <HomepageFeatures />
-      </main>
-    </Layout>
+    <>
+        <Layout
+          title={`${siteConfig.title}`}  
+          description="A website for good dev links">
+          <HomepageHeader />
+          <main>
+            <HomepageFeatures />
+          </main>
+        </Layout>
+        <Analytics />
+    </>
   );
 }
