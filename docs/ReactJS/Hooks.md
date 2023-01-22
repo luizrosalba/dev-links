@@ -140,7 +140,7 @@ Almost the same as useEffect, but fires synchronously after the render phase. Us
 
 ## Optimization - useMemo
 
-useMemo is a React Hook that lets you cache the result of a calculation between re-renders.
+useMemo is a React Hook that lets you <strong>cache the result </strong> of a calculation between re-renders.
 
 [useMemo Example](https://codepen.io/luizrosalba/pen/LYBZGwv?editors=1111)
 
@@ -172,14 +172,9 @@ console.timeEnd('filter array');
 ```
 :::
 
-
-
-
-
-
 ## Optimization - useCallback
 
-useCallback is a React Hook that lets you cache a function definition between re-renders.
+useCallback is a React Hook that lets you cache a <strong>function definition </strong>between re-renders.
 
 const cachedFn = useCallback(fn, dependencies)
 
