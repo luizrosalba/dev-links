@@ -43,7 +43,7 @@ I can just create a withLoggingOnClick function, that:
 3) sends the data that I need to the whatever external framework is used for logging
 4) returns the component with onClick callback intact for further use
 
-```jsx title=HOC callback'
+```jsx title='HOC callback'
 type Base = { onClick: () => void };
 
 // just a function that accepts Component as an argument
@@ -63,8 +63,8 @@ export const withLoggingOnClick = <TProps extends Base>(Component: ComponentType
 };
 ```
 And now I can just add it to any component that I want. I can have a Button with logging baked in:
-
+```jsx title='HOC callback button'
 export const ButtonWithLoggingOnClick = withLoggingOnClick(SimpleButton);
-
+```
 [https://codesandbox.io/s/hocs-buttons-m45hm4?file=/src/hocs/with-logging-on-click.tsx](https://codesandbox.io/s/hocs-buttons-m45hm4?file=/src/hocs/with-logging-on-click.tsx)
 
