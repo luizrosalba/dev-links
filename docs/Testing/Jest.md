@@ -70,3 +70,17 @@ jest.spyOn(moduleCall(), 'functionName').mockReturnValue({
 });
 
 ```
+ 
+## Mock a default export vs named export
+
+Default: don't forget the callback function 
+
+```jsx title='Mocking a Default export '
+jest.mock('./Module',() =>  jest.fn());
+```
+Named: don't forget the {}
+
+```jsx title='Mocking a Named export '
+jest.mock('./Module',() => ({useGetProductsTypeLabel: jest.fn(),})
+);
+```
