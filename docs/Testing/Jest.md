@@ -81,6 +81,6 @@ jest.mock('./Module',() =>  jest.fn());
 Named: don't forget the {}
 
 ```jsx title='Mocking a Named export '
-jest.mock('./Module',() => (functionName: jest.fn(),})
+jest.mock('./Module',() => {(functionName: jest.fn(),})
 );
 ```
