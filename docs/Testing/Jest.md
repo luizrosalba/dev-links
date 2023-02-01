@@ -103,7 +103,7 @@ jest.mock('path-to-hook', () => () => {
 ```
 3) latter on tests you can do 
 
-```jsx title='Mocking a Named export '
+```jsx title='Changing the value will be rendered'
     mockValue1 = true
     component = render(<Component {...props} />);
 ```
