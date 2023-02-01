@@ -81,6 +81,28 @@ jest.mock('./Module',() =>  jest.fn());
 Named: don't forget the {}
 
 ```jsx title='Mocking a Named export '
-jest.mock('./Module',() => {(functionName: jest.fn(),})
+jest.mock('./Module',() => () => {(functionName: jest.fn())})
 );
 ```
+
+## Mock a hook default export and change value 
+
+1) Do not import the actual hook module 
+2) On test file mock by the path 
+
+const mockfunc1 = jest.fn()
+let mockValue1 = false
+
+```jsx title='Mocking the hook'
+jest.mock('path-to-hook', () => () => {
+  return ({
+    func1: mockfunc1,
+    value1: mockValue1
+  })
+});
+```
+3) latter on tests you can do 
+
+```jsx title='Mocking a Named export '
+    mockValue1 = true
+    component = render(<Component {...props} />);
