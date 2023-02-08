@@ -87,13 +87,16 @@ jest.mock('./Module',() => () => {(functionName: jest.fn())})
 
 ## Mock a hook default export and change value 
 
-1) Do not import the actual hook module 
-2) On test file mock by the path 
+```jsx title='1) Mocking the hook'
+- Do not import the actual hook module 
+
+-  On test file mock by the path 
 
 const mockfunc1 = jest.fn()
 let mockValue1 = false
+```
 
-```jsx title='Mocking the hook'
+```jsx title='2) add jest return'
 jest.mock('path-to-hook', () => () => {
   return ({
     func1: mockfunc1,
@@ -103,7 +106,7 @@ jest.mock('path-to-hook', () => () => {
 ```
 3) latter on tests you can do 
 
-```jsx title='Changing the value will be rendered'
+```jsx title='3) Changing the value will be rendered'
     mockValue1 = true
     component = render(<Component {...props} />);
 ```
