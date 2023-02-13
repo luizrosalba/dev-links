@@ -18,25 +18,3 @@ When you start a project and want to configure Vscode terminal to access you git
 3) trying to push will activate a popup that can be filled with you PAT 
 
 4) config is done ! 
-
-
-```
-{
-    "key": "ctrl+shift+q",
-    "command": "git.openFile",
-    "when": "editorFocus && isInDiffEditor"
-},
-{
-    "key": "ctrl+shift+q",
-    "command": "git.openChange",
-    "when": "editorFocus && !isInDiffEditor"
-}
-```
-
-Now hitting ctrl+shift+q with the file open will switch from git tree to file . 
-
-
-Source : 
-
-[https://code.visualstudio.com/docs/getstarted/keybindings](https://code.visualstudio.com/docs/getstarted/keybindings)
-[https://stackoverflow.com/questions/44737285/vs-code-shortcut-for-toggling-git-open-changes-and-git-open-file/48655811#48655811](https://stackoverflow.com/questions/44737285/vs-code-shortcut-for-toggling-git-open-changes-and-git-open-file/48655811#48655811)
