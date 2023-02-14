@@ -76,13 +76,12 @@ jest.spyOn(moduleCall(), 'functionName').mockReturnValue({
 Default: don't forget the callback function 
 
 ```jsx title='Mocking a Default export '
-jest.mock('./Module',() =>  jest.fn());
+jest.mock('./Module',() => () => jest.fn());
 ```
 Named: don't forget the {}
 
 ```jsx title='Mocking a Named export '
-jest.mock('./Module',() => () => {(functionName: jest.fn())})
-);
+jest.mock('./Module',()  => {(functionName: jest.fn())});
 ```
 
 ## Mock a hook default export and change value 
