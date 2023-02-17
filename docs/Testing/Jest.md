@@ -109,3 +109,15 @@ jest.mock('path-to-hook', () => () => {
     mockValue1 = true
     component = render(<Component {...props} />);
 ```
+## Mock a hook named export and change value 
+
+```jsx title='Mock a hook named export and change value ' 
+
+jest.mock('path', () => ({
+  useHook() {
+    return {
+      attribute: attributeValue,
+    };
+  },
+}));
+```
