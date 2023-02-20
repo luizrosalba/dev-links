@@ -1,10 +1,10 @@
-# Jest 
+# Jest
 
 ## keep all functions from original module but with two functions mocked
 
 ```jsx title='Keep module change some funcions Example'
-jest.mock('./modulename', () => {
-  const originalModule = jest.requireActual('./modulename');
+jest.mock("./modulename", () => {
+  const originalModule = jest.requireActual("./modulename");
   return {
     __esModule: true,
     ...originalModule,
@@ -14,7 +14,7 @@ jest.mock('./modulename', () => {
 });
 ```
 
-## Mocking a module and changing the value from the response 
+## Mocking a module and changing the value from the response
 
 ```jsx title='Mocking a module'
 
@@ -23,11 +23,11 @@ import { module } from './path-to-module';
 jest.mock('./path-to-module');
 
 describe('Testing Component', () => {
-  const props = { 
+  const props = {
     prop1: '1'
     prop2: '2'
   }
-  let componentName; 
+  let componentName;
 
   beforeEach(() => {
     jest.resetAllMocks();
@@ -45,14 +45,13 @@ describe('Testing Component', () => {
     expect(elementName).toBeInTheDocument()
     expect(elementName).not.toBeNull();
   });
-  
+
 });
 ```
 
+## Using async component with jest
 
-## Using async component with jest 
-
-Don't forget the await ahead of the act to render a async component, or your component will behave inconsistently , sometimes will resolve sometimes won't. 
+Don't forget the await ahead of the act to render a async component, or your component will behave inconsistently , sometimes will resolve sometimes won't.
 
 ```jsx title='Using async component with jest '
   await act(() => {
@@ -62,58 +61,62 @@ Don't forget the await ahead of the act to render a async component, or your com
   });
 ```
 
-## Mocking using spy.on 
+## Mocking using spy.on
 
 ```jsx title='Mocking using spy.on '
-jest.spyOn(moduleCall(), 'functionName').mockReturnValue({
-  key: value
+jest.spyOn(moduleCall(), "functionName").mockReturnValue({
+  key: value,
 });
-
 ```
- 
+
 ## Mock a default export vs named export
 
-Default: don't forget the callback function 
+Default: don't forget the callback function
 
 ```jsx title='Mocking a Default export '
-jest.mock('./Module',() => () => jest.fn());
+jest.mock("./Module", () => () => jest.fn());
 ```
+
 Named: don't forget the {}
 
 ```jsx title='Mocking a Named export '
 jest.mock('./Module',()  => {(functionName: jest.fn())});
 ```
 
-## Mock a hook default export and change value 
+## Mock a hook default export and change value
 
 ```jsx title='1) Mocking the hook'
-- Do not import the actual hook module 
+- Do not Import the actual hook module if you don't need to change the value.
 
--  On test file mock by the path 
+- Import the actual hook module if you need to change the value.
+
+import { func1 } from 'pathToFunc1'
+
+-  On test file mock by the path
 
 const mockfunc1 = jest.fn()
 let mockValue1 = false
 ```
 
 ```jsx title='2) add jest return'
-jest.mock('path-to-hook', () => () => {
-  return ({
+jest.mock("path-to-hook", () => () => {
+  return {
     func1: mockfunc1,
-    value1: mockValue1
-  })
+    value1: mockValue1,
+  };
 });
 ```
-3) latter on tests you can do 
 
-```jsx title='3) Changing the value will be rendered'
+```jsx title='3) latter on tests you can change the value that will be rendered'
     mockValue1 = true
+    (validateTerms as jest.Mock).mockReturnValue(true);
     component = render(<Component {...props} />);
 ```
-## Mock a hook named export and change value 
 
-```jsx title='Mock a hook named export and change value ' 
+## Mock a hook named export and change value
 
-jest.mock('path', () => ({
+```jsx title='Mock a hook named export and change value '
+jest.mock("path", () => ({
   useHook() {
     return {
       attribute: attributeValue,
