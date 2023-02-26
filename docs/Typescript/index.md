@@ -4,10 +4,6 @@
 
 TypeScript is a strongly typed programming language that builds on JavaScript, giving you better tooling at any scale.
 
-## JS API
-
-[https://www.javascripture.com/](https://www.javascripture.com/)
-
 ## Hand Notes
 
 [https://www.dropbox.com/s/sz1muwys6tbz3dk/TypeScript%20Notes.pdf?dl=0](https://www.dropbox.com/s/sz1muwys6tbz3dk/TypeScript%20Notes.pdf?dl=0)
