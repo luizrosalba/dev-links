@@ -21,7 +21,7 @@ In addition, all patterns can be categorized by their intent, or purpose. This b
 
 - Behavioral patterns take care of effective communication and the assignment of responsibilities between objects.
 
-## 12 Design Patterns
+## 22 Design Patterns
 
 https://refactoring.guru/design-patterns/catalog
 
