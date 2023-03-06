@@ -77,7 +77,7 @@ Default: don't forget the callback function
 jest.mock("./Module", () => () => jest.fn());
 ```
 
-Named: don't forget the {}
+Named: don't forget the curly brackets {}
 
 ```jsx title='Mocking a Named export '
 jest.mock('./Module',()  => {(functionName: jest.fn())});
@@ -86,31 +86,38 @@ jest.mock('./Module',()  => {(functionName: jest.fn())});
 ## Mock a hook default export and change value
 
 ```jsx title='1) Mocking the hook'
-- Do not Import the actual hook module if you don't need to change the value.
+1. Do not Import the actual hook module if you don't need to change the value.
 
-- Import the actual hook module if you need to change the value.
+2. Import the actual hook module if you need to change the value.
 
 import { func1 } from 'pathToFunc1'
 
--  On test file mock by the path
-
 const mockfunc1 = jest.fn()
 let mockValue1 = false
-```
 
-```jsx title='2) add jest return'
+3. On test file mock by the path and change value of func1
+
+jest.mock("path-to-hook", () => {
+  return {
+    func1: mockfunc1,
+    value1: mockValue1,
+  };
+});
+
+3.1 or for a default export
+
 jest.mock("path-to-hook", () => () => {
   return {
     func1: mockfunc1,
     value1: mockValue1,
   };
 });
-```
 
-```jsx title='3) latter on tests you can change the value that will be rendered'
-    mockValue1 = true
-    (validateTerms as jest.Mock).mockReturnValue(true);
-    component = render(<Component {...props} />);
+4.latter on tests you can change the value that will be rendered
+
+mockValue1 = true
+(validateTerms as jest.Mock).mockReturnValue(true);
+component = render(<Component {...props} />);
 ```
 
 ## Mock a hook named export and change value
