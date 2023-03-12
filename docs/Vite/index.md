@@ -22,22 +22,28 @@ The browser will read the import and export statements in your code and make HTT
 
 Modules without any changes will return a 304 not modified status code, so the browser ignores them. Therefore, the browser doesn’t have to reload, and the application keeps its state.
 
+```
 npm create vite@latest
+```
 
 OR
 
+```
 npm init vite@latest vite-project --template react
 
 cd vite-project
 npm install
 npm run dev
+```
 
 So, instead of importing files and components in your React app with the following code:
 
 import Cards from "components/cards";
 You’ll need to import them as follows:
 
+```JS
 import Cards from “/src/components/cards.jsx”
+```
 
 Fortunately, there’s a fix for this path resolving. Go to the project’s root folder, open the vite.config.js file, and replace the existing code with the following respective code blocks:
 
