@@ -38,7 +38,10 @@ npm run dev
 
 So, instead of importing files and components in your React app with the following code:
 
+```
 import Cards from "components/cards";
+```
+
 You’ll need to import them as follows:
 
 ```JS
