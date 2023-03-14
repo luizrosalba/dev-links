@@ -194,6 +194,8 @@ export default function ProductPage({ productId, referrer, theme }) {
 
 ## useCallback vs useMemo
 
+[https://medium.com/credera-engineering/when-should-usememo-and-usecallback-be-used-and-when-not-complete-with-examples-df13cd7a6cf4](https://medium.com/credera-engineering/when-should-usememo-and-usecallback-be-used-and-when-not-complete-with-examples-df13cd7a6cf4)
+
 You will often see useMemo alongside useCallback. They are both useful when you’re trying to optimize a child component. They let you memoize (or, in other words, cache) something you’re passing down:
 
 ```jsx title='UseEffect vc useCallback Example'

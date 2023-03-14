@@ -62,7 +62,7 @@ dev Roadmap
 
 [https://github.com/kamranahmedse/developer-roadmap](https://github.com/kamranahmedse/developer-roadmap)
 
-FrontEdn best practices :
+FrontEnd best practices :
 
 [https://roadmap.sh/best-practices/frontend-performance](https://roadmap.sh/best-practices/frontend-performance)
 
