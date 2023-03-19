@@ -1,8 +1,14 @@
 # Assets
 
-## Links by theme
+Lots of assets for Web Dev
 
-[Portuguese](https://github.com/stars/arthurspk/lists/guias-de-%C3%A1reas)
+## Elements HTML / CSS
+
+Open-Source UI elements for any project
+
+Create, share, and use beautiful custom elements made with HTML and CSS.
+
+https://uiverse.io/
 
 ## Animations
 
@@ -49,27 +55,3 @@ Svg can be used as small animations or icons
 [https://fonts.google.com/](https://fonts.google.com/)
 
 ## Good Repos :
-
-plenty of different information on various development topics. Basically, this repository is an alternative to Google when it comes to research on topics such as code, programming languages, development, security, etc. It is a handy resource for developers to improve their skills.
-
-[https://github.com/sindresorhus/awesome](https://github.com/sindresorhus/awesome)
-
-Javascript Algorithms repository provides an invaluable resource for anyone looking to learn or explore coding with JavaScript
-
-[https://github.com/trekhleb/javascript-algorithms](https://github.com/trekhleb/javascript-algorithms)
-
-dev Roadmap
-
-[https://github.com/kamranahmedse/developer-roadmap](https://github.com/kamranahmedse/developer-roadmap)
-
-FrontEnd best practices :
-
-[https://roadmap.sh/best-practices/frontend-performance](https://roadmap.sh/best-practices/frontend-performance)
-
-Code Snippets:
-
-[https://www.30secondsofcode.org/](https://www.30secondsofcode.org/)
-
-Css Pro Tips :
-
-[https://github.com/AllThingsSmitty/css-protips](https://github.com/AllThingsSmitty/css-protips)
