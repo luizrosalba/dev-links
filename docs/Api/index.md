@@ -2,7 +2,7 @@
 
 API is the acronym for application programming interface — a software intermediary that allows two applications to talk to each other. APIs are an accessible way to extract and share data within and across organizations.
 
-[https://learning.mlytics.com/the-internet/what-is-an-api/#:~:text=API%20allows%20access%20to%20data,weather%20app%20on%20your%20smartphone.](https://learning.mlytics.com/the-internet/what-is-an-api/#:~:text=API%20allows%20access%20to%20data,weather%20app%20on%20your%20smartphone.)
+[What is API](https://learning.mlytics.com/the-internet/what-is-an-api/#:~:text=API%20allows%20access%20to%20data,weather%20app%20on%20your%20smartphone.)
 
 ## OverAPI
 
