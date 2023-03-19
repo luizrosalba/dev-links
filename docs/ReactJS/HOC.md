@@ -1,4 +1,6 @@
-# High Order Components (HOC)
+# HOC
+
+High Order Components (HOC)
 
 [https://codesandbox.io/s/hocs-intro-6jqmju?file=/src/App.tsx](https://codesandbox.io/s/hocs-intro-6jqmju?file=/src/App.tsx)
 
