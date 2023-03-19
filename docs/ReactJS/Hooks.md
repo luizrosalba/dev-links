@@ -6,11 +6,13 @@ Hooks allow you to reuse stateful logic without changing your component hierarch
 
 Hooks let you split one component into smaller functions based on what pieces are related (such as setting up a subscription or fetching data), rather than forcing a split based on lifecycle methods
 
+## Ready to use Hooks
+
 [https://usehooks-ts.com/](https://usehooks-ts.com/)
 
 ## State Management - useState
 
-[UseState](https://codepen.io/luizrosalba/pen/zYLqjZR)
+[CodePen -UseState](https://codepen.io/luizrosalba/pen/zYLqjZR)
 
 ```jsx title='UseState Example'
 function Example() {
@@ -34,7 +36,7 @@ useReducer is a React Hook that lets you add a reducer to your component.
 
 const [state, dispatch] = useReducer(reducer, initialArg, init?)
 
-[useReducer](https://codepen.io/luizrosalba/pen/eYjZKKo)
+[CodePen - useReducer](https://codepen.io/luizrosalba/pen/eYjZKKo)
 
 ```jsx title="useReducer"
 function reducer(state, action) {
@@ -66,7 +68,7 @@ export default function Counter() {
 
 ## Handle side effects - useEffect
 
-[UseEffect](https://codepen.io/luizrosalba/pen/JjBXZoq?editors=1111)
+[CodePen - UseEffect](https://codepen.io/luizrosalba/pen/JjBXZoq?editors=1111)
 
 What does useEffect do?
 
@@ -129,7 +131,13 @@ useEffect(() => {
 }, [count]); // Only re-run the effect if count changes
 ```
 
-[Use Effect Pitfalls](https://beta.reactjs.org/learn/removing-effect-dependencies)
+:::important
+
+Dependencies can introduce lots of bugs:
+
+[Use Effect Pitfalls - Dependencies ](https://beta.reactjs.org/learn/removing-effect-dependencies)
+
+:::
 
 ## Handle side effects - useLayoutEffect
 
@@ -145,7 +153,7 @@ useMemo is a React Hook that lets you <strong>cache the result </strong> of a ca
 
 const cachedValue = useMemo(calculateValue, dependencies)
 
-[https://beta.reactjs.org/reference/react/useMemo](https://beta.reactjs.org/reference/react/useMemo)
+[useMemo](https://beta.reactjs.org/reference/react/useMemo)
 
 calculateValue: The function calculating the value that you want to cache. It should be pure (A React component is considered pure if it renders the same output for the same state and props), should take no arguments, and should return a value of any type. React will call your function during the initial render. On subsequent renders, React will return the same value again if the dependencies have not changed since the last render. Otherwise, it will call calculateValue, return its result, and store it in case it can be reused later.
 
@@ -194,7 +202,7 @@ export default function ProductPage({ productId, referrer, theme }) {
 
 ## useCallback vs useMemo
 
-[https://medium.com/credera-engineering/when-should-usememo-and-usecallback-be-used-and-when-not-complete-with-examples-df13cd7a6cf4](https://medium.com/credera-engineering/when-should-usememo-and-usecallback-be-used-and-when-not-complete-with-examples-df13cd7a6cf4)
+[useCallback vs useMemo](https://medium.com/credera-engineering/when-should-usememo-and-usecallback-be-used-and-when-not-complete-with-examples-df13cd7a6cf4)
 
 You will often see useMemo alongside useCallback. They are both useful when you’re trying to optimize a child component. They let you memoize (or, in other words, cache) something you’re passing down:
 
@@ -228,4 +236,119 @@ function ProductPage({ productId, referrer }) {
 }
 ```
 
-## Use refs
+## Remember information - Useref
+
+When you want a component to “remember” some information, but you don’t want that information to trigger new renders, you can use a ref.
+
+useRef can just be used as a common React ref
+
+```jsx title='UseEffect vc useCallback Example'
+import { useRef } from "react";
+function TextInput() {
+  const inputRef = useRef(null);
+  const onBtnClick = () => inputRef.current.focus();
+  return (
+    <>
+      <input ref={ref} />
+      <button onClick={onBtnClick}>Focus the text input</button>
+    </>
+  );
+}
+```
+
+You can access the current value of that ref through the ref.current property:
+
+```jsx title='ref.current'
+import { useRef } from 'react';
+
+export default function Counter() {
+  let ref = useRef(0);
+
+  function handleClick() {
+    ref.current = ref.current + 1;
+    alert('You clicked ' + ref.current + ' times!');
+```
+
+![ref](https://res.cloudinary.com/dmo37c7zy/image/upload/c_pad,b_auto:predominant,fl_preserve_transparency/v1679255330/refs_jsgkte.jpg)
+
+- Refs are an escape hatch to hold onto values that aren’t used for rendering. You won’t need them often.
+- A ref is a plain JavaScript object with a single property called current, which you can read or set.
+  You can ask React to give you a ref by calling the useRef Hook.
+- Like state, refs let you retain information between re-renders of a component.
+- Unlike state, setting the ref’s current value does not trigger a re-render.
+- Don’t read or write ref.current during rendering. This makes your component hard to predict.
+
+## useImperativeHandle
+
+Allows you to customize the exposed interface of a component when using a ref.
+The following component will automatically focus the child input when mounted :
+
+```jsx title='useImperativeHandle'
+function TextInput(props, ref) {
+ const inputRef = useRef(null);
+ const onBtnClick = () => inputRef.current.focus();
+ useImperativeHandle(ref, () => ({
+ focusInput: () => inputRef.current.focus();
+ });
+ return (
+  <Fragment>
+    <input ref={inputRef} />
+    <button onClick={onBtnClick}>Focus the text input</button>
+  </Fragment>
+ )
+}
+const TextInputWithRef = React.forwardRef(TextInput);
+function Parent() {
+ const ref = useRef(null);
+ useEffect(() => {
+  ref.focusInput();
+ }, []);
+ return (
+  <div>
+    <TextInputWithRef ref={ref} />
+  </div>
+ );
+}
+```
+
+## Custom Hooks
+
+Extract reusable behaviour into custom hooks
+
+```jsx title='Reusable Hover Logic'
+import { useState, useRef, useCallback, useEffect } from "React";
+// let's hide the complexity of listening to hover changes
+function useHover() {
+  const [value, setValue] = useState(false); // store the hovered state
+  const ref = useRef(null); // expose a ref to listen to
+  // memoize function calls
+  const handleMouseOver = useCallback(() => setValue(true), []);
+  const handleMouseOut = useCallback(() => setValue(false), []);
+  // add listeners inside an effect,
+  // and listen for ref changes to apply the effect again
+  useEffect(() => {
+    const node = ref.current;
+    if (node) {
+      node.addEventListener("mouseover", handleMouseOver);
+      node.addEventListener("mouseout", handleMouseOut);
+      return () => {
+        node.removeEventListener("mouseover", handleMouseOver);
+        node.removeEventListener("mouseout", handleMouseOut);
+      };
+    }
+  }, [ref.current]);
+  // return the pair of the exposed ref and it's hovered state
+  return [ref, value];
+}
+```
+
+```jsx title='Usage'
+const HoverableComponent = () => {
+  const [ref, isHovered] = useHover();
+  return (
+    <span style={{ color: isHovered ? "blue" : "red" }} ref={ref}>
+      Hello React hooks !
+    </span>
+  );
+};
+```

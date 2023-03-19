@@ -1,4 +1,4 @@
-# Fetching data in react
+# Fetching data
 
 ```jsx title='Fetch Method'
 function Fetcher() {
