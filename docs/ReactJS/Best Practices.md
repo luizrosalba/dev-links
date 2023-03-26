@@ -2,6 +2,8 @@
 
 [freeCodeCamp](https://www-freecodecamp-org.cdn.ampproject.org/c/s/www.freecodecamp.org/news/best-practices-for-react/amp/)
 
+## useReducer for complex state
+
 ```jsx title='useReducer for complex state'
 Avoid :
 
@@ -67,17 +69,23 @@ const CustomersMap = () => {
 
 ```
 
+## Use shorthand for boolean props
+
 ```jsx title='Use shorthand for boolean props'
 Avoid: <RegistrationForm hasPadding={true} withError={true} />;
 
 Do: <RegistrationForm hasPadding withError />;
 ```
 
+## Avoid curly braces for string props
+
 ```jsx title='Avoid curly braces for string props'
 Avoid: <Paragraph variant={"h5"} heading={"A new book"} />;
 
 Do: <Paragraph variant="h5" heading="A new book" />;
 ```
+
+## Erase non-html attributes when spreading propss
 
 ```jsx title='Erase non-html attributes when spreading props'
 // always extract all non-HTML attributes from the props first, to make sure that there are only valid HTML attributes in restProps that you're spreading onto a JSX element.
