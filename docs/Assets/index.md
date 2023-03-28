@@ -2,14 +2,6 @@
 
 Lots of assets for Web Dev
 
-## Elements HTML / CSS
-
-Open-Source UI elements for any project
-
-Create, share, and use beautiful custom elements made with HTML and CSS.
-
-https://uiverse.io/
-
 ## Animations
 
 Lightweight, scalable animations
@@ -20,6 +12,26 @@ Lightweight, scalable animations
 
 [https://www.svgrepo.com/](https://www.svgrepo.com/)
 
+## Charts
+
+[https://chartscss.org/](https://chartscss.org/)
+
+## Carousel
+
+[https://speckyboy.com/open-source-carousel-sliders-css/](https://speckyboy.com/open-source-carousel-sliders-css/)
+
+## Elements HTML / CSS
+
+Open-Source UI elements for any project
+
+Create, share, and use beautiful custom elements made with HTML and CSS.
+
+https://uiverse.io/
+
+## Fonts and Icons
+
+[https://fonts.google.com/](https://fonts.google.com/)
+
 ## Images
 
 [https://unsplash.com/](https://unsplash.com/)
@@ -28,15 +40,19 @@ Lightweight, scalable animations
 
 [https://www.pexels.com/pt-br/](https://www.pexels.com/pt-br/)
 
+## Illustrations
+
+[https://undraw.co/illustrations](https://undraw.co/illustrations)
+
 ## Json
 
 Free Json Storage
 
 [https://extendsclass.com/json-storage.html](https://extendsclass.com/json-storage.html)
 
-## Illustrations
+## Miscellaneous
 
-[https://undraw.co/illustrations](https://undraw.co/illustrations)
+[https://superdesigner.co/tools](https://superdesigner.co/tools)
 
 ## Svg
 
@@ -50,8 +66,6 @@ Svg can be used as small animations or icons
 
 [More](https://bashooka.com/coding/resources-for-downloading-free-animated-svg-icons/)
 
-## Fonts and Icons
+## Transitions
 
-[https://fonts.google.com/](https://fonts.google.com/)
-
-## Good Repos :
+[https://www.transition.style/](https://www.transition.style/)

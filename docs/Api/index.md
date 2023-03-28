@@ -4,6 +4,12 @@ API is the acronym for application programming interface — a software intermed
 
 [What is API](https://learning.mlytics.com/the-internet/what-is-an-api/#:~:text=API%20allows%20access%20to%20data,weather%20app%20on%20your%20smartphone.)
 
+## DevDocs
+
+DevDocs combines multiple API documentations in a fast, organized, and searchable interface. Here's what you should know before you start:
+
+[https://devdocs.io/](https://devdocs.io/)
+
 ## OverAPI
 
 https://overapi.com/
