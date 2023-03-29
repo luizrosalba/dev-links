@@ -29,6 +29,7 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
+
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           sidebarCollapsible: false,
@@ -54,6 +55,19 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      algolia: {
+        appId:'79S46UXZK0',
+        indexName:'dev-links-seven',
+        apiKey:'03bb3227d199a6d1bcf770dc0a886ac6',
+        contextualSearch: true,
+        externalUrlRegex: 'external\\.com|domain\\.com',
+        replaceSearchResultPathname: {
+          from: '/docs/', // or as RegExp: /\/docs\//
+          to: '/',
+        },
+        searchParameters: {},
+        searchPagePath: 'search',
+      },
       navbar: {
         title: 'Dev Links 7',
         logo: {
