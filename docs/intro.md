@@ -10,7 +10,7 @@ The content is focused on Web development like HTML, css, pre-processors, React 
 
 ## Getting Started
 
-You can search for the tags and keywords (SOON!) or navigate using the sidebar
+Click on the magnifier icon to search for the tags and keywords or navigate using the sidebar.
 
 ## Want to contribute ?
 

@@ -4,21 +4,21 @@
 
 ```js title='Array methods'
 [4, 5, 6, 7].at(1); // 5
-[(4, 5, 6, 7)].push(8); // [4,5,6,7,8]
-[(4, 5, 6, 7)].pop(); // [4,5,6]
-[(4, 5, 6, 7)].fill(1); // [1,1,1,1]
-[(4, 5, 6, 7)].join(" "); // '4,5,6,7'
-[(4, 5, 6, 7)].shift(); // [5,6,7]
-[(4, 5, 6, 7)].reverse(); // [7,6,5,4]
-[(4, 5, 6, 7)].unshift(3); // [3,4,5,6,7]
-[(4, 5, 6, 7)].includes(6); // true
-[(4, 5, 6, 7)].map((item) => 2 * item); // [8,10,12,14]
-[(4, 5, 6, 7)].filter((item) => item > 5); // [6,7]
-[(4, 5, 6, 7)].find((item) => item > 5); // 6
-[(4, 5, 6, 7)].every((item) => item > 0); // true
-[(4, 5, 6, 7)].some((item) => item > 6); // true
-[(4, 5, 6, 7)].findIndex((item) => item === 5); // 1
-[(4, 5, 6, 7)].reduce((prev, curr) => prev + curr, 0); // true
+[4, 5, 6, 7].push(8); // [4,5,6,7,8]
+[4, 5, 6, 7].pop(); // [4,5,6]
+[4, 5, 6, 7].fill(1); // [1,1,1,1]
+[4, 5, 6, 7].join(","); // '4,5,6,7' concat using , as separator
+[4, 5, 6, 7].shift(); // [5,6,7] removes first entry
+[4, 5, 6, 7].reverse(); // [7,6,5,4]
+[4, 5, 6, 7].unshift(3); // [3,4,5,6,7] insert 3 in the beginning
+[4, 5, 6, 7].includes(6); // true since array includes the number 6
+[4, 5, 6, 7].map((item) => 2 * item); // [8,10,12,14] - gets each item and multiply by 2 .Always returns an array with same length as input
+[4, 5, 6, 7].filter((item) => item > 5); // [6,7] pass only ones who fill the condition
+[4, 5, 6, 7].find((item) => item > 5); // 6 six is the first item greater than 5
+[4, 5, 6, 7].every((item) => item > 0); // true all items are greater than zero
+[4, 5, 6, 7].some((item) => item > 6); // true at least one item is greater than six
+[4, 5, 6, 7].findIndex((item) => item === 5); // 1 is the index of item === 5
+[4, 5, 6, 7].reduce((prev, curr) => prev + curr, 0); // 22
 ///////////////////////////
 const array1 = ["a", "b", "c"];
 const array2 = ["d", "e", "f"];
