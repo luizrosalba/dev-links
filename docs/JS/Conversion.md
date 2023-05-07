@@ -1,3 +1,11 @@
-## Number to string
+```jsx title='Number to string'
+// Don't
+let num = 15;
+let s = num.toString();
+let n = Number(s);
 
-![number 2 string](https://res.cloudinary.com/dmo37c7zy/image/upload/v1672401586/n2string_bcowmj.png)
+// Do
+let num = 15;
+let s = num + ""; // number to string
+let n = +s; /// string to number
+```
