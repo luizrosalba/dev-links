@@ -1,5 +1,7 @@
 # Jest
 
+[async](https://dev.to/lennythedev/testing-async-stuff-in-react-components-with-jest-and-react-testing-library-mag)
+
 ## keep all functions from original module but with two functions mocked
 
 ```jsx title='Keep module change some funcions Example'
