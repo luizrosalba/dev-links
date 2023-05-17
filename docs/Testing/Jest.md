@@ -133,3 +133,20 @@ jest.mock("path", () => ({
   },
 }));
 ```
+
+## ReferenceError: Cannot access ... before initialization
+
+Jest needs to return a function when you ask for it
+
+THE GENERAL SOLUTION
+
+```jsx title='Cannot access before initialization'
+const myMock = jest.fn();
+
+jest.mock("lib", () => ({
+  useLogin: () => myMock(), // ✅ WORKS, myMock needed only on execution
+  logout: myMock, // ❌ BREAKS, myMock needed while mocking
+  complexHook: () => ({ callback: myMock }), // ✅ WORKS, myMock needed only on execution
+  complexSyntaxHook: jest.fn().mockImplementation(() => ({ callback: myMock })), // ✅ WORKS, myMock needed only on execution
+}));
+```

@@ -3,11 +3,19 @@
 ```jsx title='Fetch Method'
 function Fetcher() {
   const [data, setData] = useState < string > "";
+  const [hasError, setHasError] = useState(false); dont do this
   useEffect(() => {
+    try {
     fetch("site")
       .then((response) => rensponse.json())
       .then((json) => setData(json));
+    } catch e {
+      setHasError(true);
+      return <SomeErrorScreen />
+    }
   }, []);
+
+  if (hasError) return hasError
   return data;
 }
 ```
