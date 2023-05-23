@@ -29,12 +29,11 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          sidebar: {
-            hideable: true,
-          },
+
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           sidebarCollapsible: false,
+          sidebarCollapsed: false,
           editUrl:
             'https://github.com/luizrosalba/dev-links/tree/master/',
         },
@@ -109,6 +108,12 @@ const config = {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },
+      docs: {
+        sidebar: {
+          hideable: true,
+          autoCollapseCategories: false
+        }
+      }
     }),
 };
 
