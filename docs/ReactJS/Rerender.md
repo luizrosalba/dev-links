@@ -139,7 +139,9 @@ const Component = () => {
     <SlowComponent /> /// will remount when Component Rerender
   );
 };
+```
 
+```jsx title='props change'
 /// DO
 
 const SlowComponent = () => <Something />;
@@ -167,7 +169,9 @@ const Component = () => {
     <Something />
   )
 }
+```
 
+```jsx title='Prevent rerender with composition'
 /// DO
 const ButtonWithDialog = () => {
   const [open, setOpen] = useState(false)
@@ -178,7 +182,9 @@ const ButtonWithDialog = () => {
     </>
   )
 }
+```
 
+```jsx title='Prevent rerender with composition'
 const Component = () => {
   return (
     <Something >
@@ -207,7 +213,9 @@ const Component = () => {
     <div />
   );
 };
+```
 
+```jsx title='Prevent rerender with composition - children as props'
 /// DO
 const ComponentWithScroll = ({children}) => {
     const [value, setValue] = useState({})
@@ -217,6 +225,10 @@ const ComponentWithScroll = ({children}) => {
     <div />
   );
 }
+```
+
+```jsx title='Prevent rerender with composition - children as props'
+
 const Component = () => {
   return (
     <ComponentWithScroll >
