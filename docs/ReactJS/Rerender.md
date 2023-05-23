@@ -19,9 +19,9 @@ Non-interactive apps that don’t have any asynchronous data updates will never 
 
 Necessary re-render - re-render of a component that is the source of the changes, or a component that directly uses the new information. For example, if a user types in an input field, the component that manages its state needs to update itself on every keystroke, i.e. re-render.
 
-:::info
-
 Unnecessary re-render - re-render of a component that is propagated through the app via different re-renders mechanisms due to either mistake or inefficient app architecture. For example, if a user types in an input field, and the entire page re-renders on every keystroke, the page has been re-rendered unnecessarily.
+
+:::info
 
 Unnecessary re-renders by themselves are not a problem: React is very fast and usually able to deal with them without users noticing anything.
 
