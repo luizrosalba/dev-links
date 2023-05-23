@@ -16,14 +16,10 @@ When talking about React performance, there are two major stages that we need to
 Non-interactive apps that don’t have any asynchronous data updates will never re-render, and therefore don’t need to care about re-renders performance optimization.
 
 ```jsx title='rerender counter'
-
+const countRef = useRef(0);
+countRef.current = countRef.current + 1;
+console.log("countRef.current", countRef.current);
 ```
-
-const countRef = useRef(0)
-countRef.current = countRef.current + 1
-console.log('countRef.current', countRef.current)
-
-````
 
 ## What is a necessary and unnecessary re-render?
 
@@ -63,7 +59,7 @@ const Component = () => {
     /// will rerender when state changes
   };
 };
-````
+```
 
 ### 2. parent (or children) re-renders
 
