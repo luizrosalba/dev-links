@@ -106,7 +106,7 @@ const Component = () => {
 };
 ```
 
-### big myth - props change
+## Big myth - props change
 
 It doesn’t matter whether the component’s props change or not when talking about re-renders of not memoized components.
 
@@ -122,7 +122,7 @@ const Parent = () => {
 };
 ```
 
-### Avoid Creating components in render function !
+## Avoid Creating components in render function !
 
 On every re-render React will re-mount this component (i.e. destroy it and re-create it from scratch), which is going to be much slower than a normal re-render. On top of that, this will lead to such bugs as:
 
@@ -151,22 +151,22 @@ const Component = () => {
 };
 ```
 
-### Encapsulate state in smaller components
+## Encapsulate state in smaller components
 
 The bigger component won’t re-render on smaller component state changes.
 
 ```jsx title='Prevent rerender with composition'
 /// AVOID
 const Component = () => {
-    const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false)
   return (
-    <Something >
+    <Something>
         <Button onClick={() => setOpen(true)} /> /// when setOpen
         {isOpen && <ModalDialog />}
         <SlowComponent /> /// will rerender when open changes
     <Something />
-  );
-};
+  )
+}
 
 /// DO
 const ButtonWithDialog = () => {
@@ -176,8 +176,7 @@ const ButtonWithDialog = () => {
         <Button onClick={() => setOpen(true)}> /// when setOpen
         {isOpen && <ModalDialog />}
     </>
-  ;
-)
+  )
 }
 
 const Component = () => {
@@ -190,7 +189,7 @@ const Component = () => {
 };
 ```
 
-### Encapsulate state in smaller components - children as props
+## Encapsulate state in smaller components - children as props
 
 This can also be called “wrap state around children”.
 
@@ -225,4 +224,302 @@ const Component = () => {
     <Something />
   );
 };
+```
+
+## Encapsulate state in smaller components - components as props
+
+Same as before but with components as props
+
+```jsx title='Prevent rerender with composition - components as props'
+/// AVOID
+const Component = () => {
+    const [value, setValue] = useState({})
+  return (
+    <div onScroll ={(e) => setValue(e)} > /// when triggered
+        <SlowComponent1 /> /// will rerender
+        <Something /> /// will rerender
+        <SlowComponent1 /> /// will rerender
+    <div />
+  );
+};
+```
+
+```jsx title='Prevent rerender with composition - components as props'
+/// DO
+const ComponentWithScroll = ({left, right}) => {
+    const [value, setValue] = useState({})
+  return (
+    <div onScroll ={(e) => setValue(e)} > /// when triggered
+        {left}  /// just props not affected
+        <Something />
+        {right}  /// just props not affected
+    <div />
+  );
+}
+const Component = () => {
+  return (
+    <ComponentWithScroll
+      left={<SlowComponent1 />}
+      right={<SlowComponent2 />}
+    />
+  );
+};
+```
+
+## React.memo
+
+Wrapping a component in React.memo will stop the downstream chain of re-renders that is triggered somewhere up the render tree, unless this component’s props have changed.
+
+```jsx title='React.memo'
+/// AVOID
+const Parent = () => {
+  /// when parent rerender
+  return (
+    <Child /> /// child rerender
+  );
+};
+```
+
+```jsx title='React.memo'
+/// Do
+const ChildMemo = React.memo(Child);
+const Parent = () => {
+  /// when parent rerender
+  return (
+    <ChildMemo /> /// child wont rerender
+  );
+};
+```
+
+## React.memo - component with props
+
+All props that are not primitive values have to be memoized for React.memo to work
+
+```jsx title='React.memo'
+/// AVOID
+const Parent = () => {
+  /// when parent rerender
+  return (
+    <Child
+      value={{ value }} /// value changes , rerenders
+    />
+  );
+};
+```
+
+```jsx title='React.memo'
+/// Do
+const ChildMemo = React.memo(Child);
+const Parent = () => {
+  const value = useMemo(() => ({ vaue }, []));
+  /// when parent rerender stay the same value
+  return (
+    <ChildMemo value={value} /> /// child wont rerender
+  );
+};
+```
+
+## React.memo - component as props or children
+
+React.memo has to be applied to the elements passed as children/props. Memoizing the parent component will not work: children and props will be objects, so they will change with every re-render.
+
+```jsx title='React.memo as props or children'
+/// AVOID
+const Parent = () => {
+  /// when parent rerender
+  return (
+    /// all rerenders
+    <ChildMemo left={<Something />}>
+      <GranChild>
+    <ChildMemo/>
+  );
+};
+```
+
+```jsx title='React.memo'
+/// Do
+const SomethingMemo = React.memo(Something);
+const GranChildMemo = React.memo(GranChild);
+const Parent = () => {
+  /// when parent rerender stay the same value
+  return (
+    /// all wont rerender
+    <Child left={<SomethingMemo />}>
+      <GranChildMemo>
+    <Child/>
+  );
+};
+```
+
+## useMemo/ useCallback
+
+Memoizing props by themselves will not prevent re-renders of a child component. If a parent component re-renders, it will trigger re-render of a child component regardless of its props.
+
+If a component uses non-primitive value as a dependency in hooks like useEffect, useMemo, useCallback, it should be memoized. (see React.memo - component with props)
+
+```jsx title='non-primitive value as a dependency in hooks'
+/// Do
+const Parent = () => { /// when parent rerenders
+  const value = useMemo (() => ({value}))
+  useEffect (() => {
+
+  }, [value]) /// value should be memoized
+  return (
+
+  );
+};
+```
+
+## useMemo for expensive calculations
+
+The typical use case for useMemo would be to memoize React elements. Usually parts of an existing render tree or results of generated render tree, like a map function that returns new elements.
+
+```jsx title='useMemo for expensive calculations'
+/// Dont
+const Component = () => {
+  /// when parent rerenders
+  return (
+    <>
+      <Something />
+      <SlowComponent /> /// will rerender
+      <SomethingElse />
+    </>
+  );
+};
+```
+
+```jsx title='useMemo for expensive calculations'
+/// Do
+const Component = () => {
+  /// when parent rerenders
+  const slowComponent = useMemo(() => {
+    return <SlowCompoennt />;
+  }, []);
+  return (
+    <>
+      <Something />
+      {slowComponent}> /// wont rerender
+      <SomethingElse />
+    </>
+  );
+};
+```
+
+## improve re-render performance of lists
+
+In addition to the regular re-renders rules and patterns, the key attribute can affect the performance of lists in React.
+
+Important: just providing key attribute will not improve lists' performance. To prevent re-renders of list elements you need to wrap them in React.memo and follow all of its best practices.
+
+Value in key should be a string, that is consistent between re-renders for every element in the list. Typically, item’s id or array’s index is used for that.
+
+It is okay to use array’s index as key, if the list is static, i.e. elements are not added/removed/inserted/re-ordered.
+
+Using array’s index on dynamic lists can lead to:
+
+- bugs if items have state or any uncontrolled elements (like form inputs)
+- degraded performance if items are wrapped in React.memo
+
+```jsx title='React.memo for improve list performances'
+/// Dont
+const Component = () => {
+  /// when parent rerenders
+  return (
+    <>
+      {items.map (() => (
+        <Child item ={item} key={item.id}> /// will rerender independent of index
+      ))}
+    </>
+  );
+};
+```
+
+```jsx title='React.memo for improve list performances'
+/// Do
+const ChildMemo = React.memo(Child)
+
+const Component = () => {
+  /// when parent rerenders
+  return (
+    <>
+      {items.map (() => (
+        <ChildMemo item ={item} key={item.id}> /// won't rerender independent of index unless its random
+      ))}
+    </>
+  );
+};
+```
+
+## Prevent re-renders caused by context - memoize provider
+
+If Context Provider is placed not at the very root of the app, and there is a possibility it can re-render itself because of changes in its ancestors, its value should be memoized.
+
+```jsx title='useMemo for improve context rerender - memoize provider'
+/// Dont
+const Component = () => {
+  /// when parent rerenders
+  return (
+    <Context.Provider = {{value}}>
+      {children}
+    <Context.Provider/>
+  );
+};
+```
+
+```jsx title='useMemo for improve context rerender - memoize provider'
+/// Do
+
+
+const Component = () => {
+  const memoValue =useMemo({value}, [])
+
+  /// when parent rerenders
+  return (
+    <Context.Provider = {{memoValue}}>
+      {children}
+    <Context.Provider/>
+  );
+};
+```
+
+## Prevent re-renders caused by context -split data and API
+
+## Prevent re-renders caused by context -split data into chunks
+
+## Prevent re-renders caused by context - context selectors
+
+There is no way to prevent a component that uses a portion of Context value from re-rendering, even if the used piece of data hasn’t changed, even with useMemo hook.
+
+Context selectors, however, could be faked with the use of higher-order components and React.memo.
+
+```jsx title='context selectors'
+/// Dont
+const useSomething = () => {
+  const {something} = useContext(context)
+  return useMemo(() => something, [something]) ///useMemo wont help
+}
+
+const Component = () => {
+  const {something} = useSomething() /// will rerender even if something hasn't changed
+  return (
+  );
+};
+```
+
+```jsx title='context selectors'
+/// Do
+const withSomething = (Component) => {
+  const MemoComponent = React.memo(Component)
+  return () => {
+    const {something } = useSomething()
+    return <MemoComponent something= {something}> /// rerenders only if something changed
+  }
+}
+
+const Component = withSomething(({ something })) => {
+   /// will rerender even if something has changed
+  return (
+  );
+};
+
 ```
