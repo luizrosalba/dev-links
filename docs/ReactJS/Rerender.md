@@ -106,7 +106,7 @@ const Component = () => {
 };
 ```
 
-## Big myth - props change
+## Props change does not necessarily cause rerender
 
 It doesn’t matter whether the component’s props change or not when talking about re-renders of not memoized components.
 
@@ -160,15 +160,15 @@ The bigger component won’t re-render on smaller component state changes.
 ```jsx title='Prevent rerender with composition'
 /// AVOID
 const Component = () => {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
   return (
     <Something>
-        <Button onClick={() => setOpen(true)} /> /// when setOpen
-        {isOpen && <ModalDialog />}
-        <SlowComponent /> /// will rerender when open changes
-    <Something />
-  )
-}
+      <Button onClick={() => setOpen(true)} /> /// when setOpen
+      {isOpen && <ModalDialog />}
+      <SlowComponent /> /// will rerender when open changes
+    </Something>
+  );
+};
 ```
 
 ```jsx title='Prevent rerender with composition'
@@ -187,10 +187,10 @@ const ButtonWithDialog = () => {
 ```jsx title='Prevent rerender with composition'
 const Component = () => {
   return (
-    <Something >
-    <ButtonWithDialog />
-    <SlowComponent /> /// won't rerender when Dialog is opened
-    <Something />
+    <Something>
+      <ButtonWithDialog />
+      <SlowComponent /> /// won't rerender when Dialog is opened
+    </Something>
   );
 };
 ```
@@ -206,34 +206,37 @@ This can also be called “wrap state around children”.
 ```jsx title='Prevent rerender with composition - children as props'
 /// AVOID
 const Component = () => {
-    const [value, setValue] = useState({})
+  const [value, setValue] = useState({});
   return (
-    <div onScroll ={(e) => setValue(e)} > /// when triggered
-        <SlowComponent /> /// will rerender
-    <div />
+    <div onScroll={(e) => setValue(e)}>
+      {" "}
+      /// when triggered
+      <SlowComponent /> /// will rerender
+    </div>
   );
 };
 ```
 
 ```jsx title='Prevent rerender with composition - children as props'
 /// DO
-const ComponentWithScroll = ({children}) => {
-    const [value, setValue] = useState({})
+const ComponentWithScroll = ({ children }) => {
+  const [value, setValue] = useState({});
   return (
-    <div onScroll ={(e) => setValue(e)} > /// when triggered
-        {children}  /// just props not affected
-    <div />
+    <div onScroll={(e) => setValue(e)}>
+      {" "}
+      /// when triggered
+      {children} /// just props not affected
+    </div>
   );
-}
+};
 ```
 
 ```jsx title='Prevent rerender with composition - children as props'
-
 const Component = () => {
   return (
-    <ComponentWithScroll >
-        <SlowComponent /> /// won't rerender when Dialog is opened
-    <Something />
+    <ComponentWithScroll>
+      <SlowComponent /> /// won't rerender when Dialog is opened
+    </ComponentWithScroll>
   );
 };
 ```
@@ -245,35 +248,40 @@ Same as before but with components as props
 ```jsx title='Prevent rerender with composition - components as props'
 /// AVOID
 const Component = () => {
-    const [value, setValue] = useState({})
+  const [value, setValue] = useState({});
   return (
-    <div onScroll ={(e) => setValue(e)} > /// when triggered
-        <SlowComponent1 /> /// will rerender
-        <Something /> /// will rerender
-        <SlowComponent1 /> /// will rerender
-    <div />
+    <div onScroll={(e) => setValue(e)}>
+      {" "}
+      /// when triggered
+      <SlowComponent1 /> /// will rerender
+      <Something /> /// will rerender
+      <SlowComponent1 /> /// will rerender
+    </div>
   );
 };
 ```
 
 ```jsx title='Prevent rerender with composition - components as props'
 /// DO
-const ComponentWithScroll = ({left, right}) => {
-    const [value, setValue] = useState({})
+const ComponentWithScroll = ({ left, right }) => {
+  const [value, setValue] = useState({});
   return (
-    <div onScroll ={(e) => setValue(e)} > /// when triggered
-        {left}  /// just props not affected
-        <Something />
-        {right}  /// just props not affected
-    <div />
+    <div onScroll={(e) => setValue(e)}>
+      {" "}
+      /// when triggered
+      {left} /// just props not affected
+      <Something />
+      {right} /// just props not affected
+    </div>
   );
-}
+};
+```
+
+```jsx title='Prevent rerender with composition - components as props'
 const Component = () => {
   return (
-    <ComponentWithScroll
-      left={<SlowComponent1 />}
-      right={<SlowComponent2 />}
-    />
+    /// slow Components won't when setValue is triggered, they are only props
+    <ComponentWithScroll left={<SlowComponent1 />} right={<SlowComponent2 />} />
   );
 };
 ```
@@ -369,6 +377,28 @@ Memoizing props by themselves will not prevent re-renders of a child component. 
 
 If a component uses non-primitive value as a dependency in hooks like useEffect, useMemo, useCallback, it should be memoized. (see React.memo - component with props)
 
+```jsx title='non-primitive value must be memoized'
+/// Avoid
+const Parent = () => { /// when parent rerenders
+  const value = useMemo (() => ({value}))
+  return (
+    <Child value={value}> ///renders independent of props
+  );
+};
+```
+
+```jsx title='non-primitive value must be memoized'
+/// Do
+const ChildMemo = React.memo(Child);
+
+const Parent = () => {
+  /// when parent rerenders
+  const value = useMemo(() => ({ value }));
+
+  return <ChildMemo value={value} />; /// wont rerender value ChildMemo ares memoized
+};
+```
+
 ```jsx title='non-primitive value as a dependency in hooks'
 /// Do
 const Parent = () => { /// when parent rerenders
@@ -376,9 +406,7 @@ const Parent = () => { /// when parent rerenders
   useEffect (() => {
 
   }, [value]) /// value should be memoized
-  return (
-
-  );
+  return ...;
 };
 ```
 
@@ -439,7 +467,8 @@ const Component = () => {
   return (
     <>
       {items.map (() => (
-        <Child item ={item} key={item.id}> /// will rerender independent of index
+        <Child item ={item} key={item.id}>
+        /// will rerender independent of index
       ))}
     </>
   );
@@ -455,7 +484,8 @@ const Component = () => {
   return (
     <>
       {items.map (() => (
-        <ChildMemo item ={item} key={item.id}> /// won't rerender independent of index unless its random
+        <ChildMemo item ={item} key={item.id}>
+        /// won't rerender independent of index unless its random
       ))}
     </>
   );
@@ -473,7 +503,7 @@ const Component = () => {
   return (
     <Context.Provider = {{value}}>
       {children}
-    <Context.Provider/>
+    </Context.Provider>
   );
 };
 ```
@@ -488,7 +518,7 @@ const Component = () => {
   /// when parent rerenders
   return (
     <Context.Provider = {{memoValue}}>
-      {children}
+      {children}  /// no one rerenders
     <Context.Provider/>
   );
 };
@@ -496,7 +526,52 @@ const Component = () => {
 
 ## Prevent re-renders caused by context -split data and API
 
+If in Context there is a combination of data and API (getters and setters) they can be split into different Providers under the same component. That way, components that use API only won’t re-render when the data changes.
+
+```jsx title='split data and API'
+/// Dont
+const Component = () => {
+  /// when state changes
+  const [state, setState] = useState();
+  const value = useMemo(
+    () => ({
+      data: state,
+      api: (data) => setState(data),
+    }),
+    [state]
+  );
+  return (
+    <Context.Provider value={value}>
+      {" "}
+      ///every consumer rerenders
+      {children}
+    </Context.Provider>
+  );
+};
+```
+
+```jsx title='split data and API'
+/// Do
+const Component = () => {
+  /// when state changes  rerenders
+  const [state, setState] = useState();
+  return (
+    <Context.Provider value={setState}>
+      {" "}
+      ///every Context consumer rerenders
+      <ApiContext.Provider value={value}>
+        {" "}
+        ///API consumers wont rerender
+        {children}
+      </ApiContext.Provider>
+    </Context.Provider>
+  );
+};
+```
+
 ## Prevent re-renders caused by context -split data into chunks
+
+If Context manages a few independent data chunks, they can be split into smaller providers under the same provider. That way, only consumers of changed chunk will re-render.
 
 ## Prevent re-renders caused by context - context selectors
 
