@@ -4,10 +4,14 @@
 
 When talking about React performance, there are two major stages that we need to care about:
 
+:::info
+
 - initial render: happens when a component first appears on the screen
 
 - re-render: second and any consecutive render of a component that is already on the screen
   Re-render happens when React needs to update the app with some new data. Usually, this happens as a result of a user interacting with the app or some external data coming through via an asynchronous request or some subscription model.
+
+:::
 
 Non-interactive apps that don’t have any asynchronous data updates will never re-render, and therefore don’t need to care about re-renders performance optimization.
 
@@ -15,9 +19,13 @@ Non-interactive apps that don’t have any asynchronous data updates will never 
 
 Necessary re-render - re-render of a component that is the source of the changes, or a component that directly uses the new information. For example, if a user types in an input field, the component that manages its state needs to update itself on every keystroke, i.e. re-render.
 
+:::info
+
 Unnecessary re-render - re-render of a component that is propagated through the app via different re-renders mechanisms due to either mistake or inefficient app architecture. For example, if a user types in an input field, and the entire page re-renders on every keystroke, the page has been re-rendered unnecessarily.
 
 Unnecessary re-renders by themselves are not a problem: React is very fast and usually able to deal with them without users noticing anything.
+
+:::
 
 However, if re-renders happen too often and/or on very heavy components, this could lead to user experience appearing “laggy”, visible delays on every interaction, or even the app becoming completely unresponsive.
 
@@ -86,9 +94,13 @@ const Component2 = () => {
 
 Everything that is happening inside a hook “belongs” to the component that uses it. The same rules regarding Context and State changes apply here:
 
+:::info
+
 - State change inside the hook will trigger an unpreventable re-rerender of the “host” component
 
 - If the hook uses Context and Context’s value changes, it will trigger an unpreventable re-rerender of the “host” component
+
+:::
 
 Hooks can be chained. Every single hook inside the chain still “belongs” to the “host” component, and the same rules apply to any of them.
 
@@ -126,10 +138,14 @@ const Parent = () => {
 
 On every re-render React will re-mount this component (i.e. destroy it and re-create it from scratch), which is going to be much slower than a normal re-render. On top of that, this will lead to such bugs as:
 
+:::info
+
 - “flashes” of content during re-renders
 - state being reset in the component with every re-render
 - useEffect with no dependencies triggered on every re-render
 - if a component was focused, focus will be lost
+
+:::
 
 ```jsx title='props change'
 /// AVOID
@@ -143,7 +159,6 @@ const Component = () => {
 
 ```jsx title='props change'
 /// DO
-
 const SlowComponent = () => <Something />;
 
 const Component = () => {
@@ -153,7 +168,7 @@ const Component = () => {
 };
 ```
 
-## Encapsulate state in smaller components
+## Encapsulate state in smaller components - Composition
 
 The bigger component won’t re-render on smaller component state changes.
 
@@ -195,13 +210,17 @@ const Component = () => {
 };
 ```
 
-## Encapsulate state in smaller components - children as props
+## Composition - children as props
 
 This can also be called “wrap state around children”.
+
+:::info
 
 - state is used on an element that wraps a slow portion of the render tree, so it can’t be extracted that easily
 
 - state management and components that use that state can be extracted into a smaller component, and the slow component can be passed to it as children
+
+:::
 
 ```jsx title='Prevent rerender with composition - children as props'
 /// AVOID
@@ -241,7 +260,7 @@ const Component = () => {
 };
 ```
 
-## Encapsulate state in smaller components - components as props
+## Composition - components as props
 
 Same as before but with components as props
 
@@ -286,7 +305,7 @@ const Component = () => {
 };
 ```
 
-## React.memo
+## Component Optimization - React.memo
 
 Wrapping a component in React.memo will stop the downstream chain of re-renders that is triggered somewhere up the render tree, unless this component’s props have changed.
 
@@ -311,7 +330,7 @@ const Parent = () => {
 };
 ```
 
-## React.memo - component with props
+## Component Optimization - Component with props
 
 All props that are not primitive values have to be memoized for React.memo to work
 
@@ -339,7 +358,7 @@ const Parent = () => {
 };
 ```
 
-## React.memo - component as props or children
+## Component Optimization- Component as props or children
 
 React.memo has to be applied to the elements passed as children/props. Memoizing the parent component will not work: children and props will be objects, so they will change with every re-render.
 
@@ -375,7 +394,11 @@ const Parent = () => {
 
 Memoizing props by themselves will not prevent re-renders of a child component. If a parent component re-renders, it will trigger re-render of a child component regardless of its props.
 
+:::caution
+
 If a component uses non-primitive value as a dependency in hooks like useEffect, useMemo, useCallback, it should be memoized. (see React.memo - component with props)
+
+:::
 
 ```jsx title='non-primitive value must be memoized'
 /// Avoid
@@ -449,7 +472,11 @@ const Component = () => {
 
 In addition to the regular re-renders rules and patterns, the key attribute can affect the performance of lists in React.
 
-Important: just providing key attribute will not improve lists' performance. To prevent re-renders of list elements you need to wrap them in React.memo and follow all of its best practices.
+:::danger
+
+Just providing key attribute will not improve lists' performance. To prevent re-renders of list elements you need to wrap them in React.memo and follow all of its best practices.
+
+:::
 
 Value in key should be a string, that is consistent between re-renders for every element in the list. Typically, item’s id or array’s index is used for that.
 
@@ -457,8 +484,12 @@ It is okay to use array’s index as key, if the list is static, i.e. elements a
 
 Using array’s index on dynamic lists can lead to:
 
+:::caution
+
 - bugs if items have state or any uncontrolled elements (like form inputs)
 - degraded performance if items are wrapped in React.memo
+
+:::
 
 ```jsx title='React.memo for improve list performances'
 /// Dont
