@@ -15,12 +15,6 @@ When talking about React performance, there are two major stages that we need to
 
 Non-interactive apps that don’t have any asynchronous data updates will never re-render, and therefore don’t need to care about re-renders performance optimization.
 
-```jsx title='rerender counter'
-const countRef = useRef(0);
-countRef.current = countRef.current + 1;
-console.log("countRef.current", countRef.current);
-```
-
 ## What is a necessary and unnecessary re-render?
 
 Necessary re-render - re-render of a component that is the source of the changes, or a component that directly uses the new information. For example, if a user types in an input field, the component that manages its state needs to update itself on every keystroke, i.e. re-render.
@@ -646,4 +640,19 @@ const Component = withSomething(({ something })) => {
   );
 };
 
+```
+
+## Useful metrics
+
+```jsx title='rerender counter'
+const countRef = useRef(0);
+countRef.current = countRef.current + 1;
+console.log("countRef.current", countRef.current);
+```
+
+```jsx title='Time consumption'
+const t0 = performance.now();
+useSetTotalPrice(multipleProduct, activeProduct); /// set price on pdp-config-banner, from-price
+const t1 = performance.now();
+console.log(`Call took ${t1 - t0} milliseconds.`);
 ```
