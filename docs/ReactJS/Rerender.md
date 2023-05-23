@@ -468,7 +468,7 @@ const Component = () => {
 };
 ```
 
-## improve re-render performance of lists
+## Improve re-render performance of lists
 
 In addition to the regular re-renders rules and patterns, the key attribute can affect the performance of lists in React.
 
