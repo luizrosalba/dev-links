@@ -150,3 +150,22 @@ jest.mock("lib", () => ({
   complexSyntaxHook: jest.fn().mockImplementation(() => ({ callback: myMock })), // ✅ WORKS, myMock needed only on execution
 }));
 ```
+
+### Mock
+
+```jsx title='mock default export hook another example and compare to snapshot'
+import useHook from 'path';
+import { render } from '@testing-library/react';
+
+jest.mock("path");
+describe('test', () => {
+  it('should render', () => {
+    const value = 123;
+    (useHook as jest.Mock).mockReturnValue(value);
+    const { baseElement } = render(<Element/>);
+    expect(baseElement).toBeTruthy();
+    expect(baseElement).toMatchSnapshot();
+  });
+});
+
+```
