@@ -32,3 +32,25 @@ const sum2 = sum1(2);
 const result = sum2(3);
 console.log(result); // 6
 ```
+
+## Improve Lot's of states updates
+
+No need to have a handler for every state
+
+```jsx title='currying lots of states updates'
+
+functions component() {
+  const [state1, setState1] = useState('')
+  const [state2, setState2] = useState('')
+  const [state3, setState3] = useState('')
+  const handleChange = (setState) => (event) => {
+    setState(event.target.value)
+  }
+  return
+  <>
+    <input value={state1} onChange={handleChange(setState1)} />
+    <input value={state2} onChange={handleChange(setState2)} />
+    <input value={state3} onChange={handleChange(setState3)} />
+  </>
+}
+```
