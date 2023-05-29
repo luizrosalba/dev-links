@@ -10,9 +10,13 @@
 
 ## Optimize images
 
-Image optimization involves reducing the size of an image file. Because images are one of the biggest assets weighing down your app’s performance, reducing the size of image files can improve performance. This is a two-step process: 1) resize the image to a smaller size and 2) save it in the correct format (jpeg is better for photos; png is better for graphics).
+Image optimization involves reducing the size of an image file. Because images are one of the biggest assets weighing down your app’s performance, reducing the size of image files can improve performance. This is a two-step process:
 
-Next.js provides an inbuilt next/image component that we can use in place of the native <img> component.
+1. resize the image to a smaller size an
+
+2. save it in the correct format (jpeg is better for photos; png is better for graphics).
+
+Next.js provides an inbuilt next/image component that we can use in place of the native img component.
 
 ```jsx title='Image Optimization'
 import Image from "next/image";
