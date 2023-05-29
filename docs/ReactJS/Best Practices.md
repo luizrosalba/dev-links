@@ -122,3 +122,7 @@ const MainTitle = ({ isBold, children, hasPadding, ...restProps }) => {
 }
 
 ```
+
+## Composition Pattern
+
+[https://medium.com/@flavtech/stop-passing-props-between-react-components-apply-composition-pattern-15b132bf0686](https://medium.com/@flavtech/stop-passing-props-between-react-components-apply-composition-pattern-15b132bf0686)

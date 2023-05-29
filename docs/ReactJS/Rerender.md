@@ -1,4 +1,5 @@
 [https://www.developerway.com/posts/react-re-renders-guide#part1](https://www.developerway.com/posts/react-re-renders-guide#part1)
+[https://ownger.medium.com/how-to-avoid-excessive-re-rendering-of-react-components-c6b9a5f0c722](https://ownger.medium.com/how-to-avoid-excessive-re-rendering-of-react-components-c6b9a5f0c722)
 
 ## What is re-render in React?
 
