@@ -10,7 +10,7 @@ Solutions
 
 1. Wrap ExpensiveComponent in React.memo
 
-2. Since only the <button> uses the router, create another component for the <button> so that the useRouter will be placed there. This removes Navbar's dependency to the useRouter hook.
+2. Since only the button uses the router, create another component for the button so that the useRouter will be placed there. This removes Navbar's dependency to the useRouter hook.
 
 ## Use prefetch={false} to reduce the number of requests on page load
 

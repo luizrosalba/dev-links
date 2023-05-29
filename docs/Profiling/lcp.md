@@ -74,7 +74,9 @@ Optimizing for LCP is a complex task, and with complex tasks it's generally bett
 
 - on index.html you can
 
+```
 <link rel='preload' href='path_to_heavy_image' as='image'>
+```
 
 - so it will start loading before JS loads
 
@@ -82,7 +84,9 @@ Optimizing for LCP is a complex task, and with complex tasks it's generally bett
 
 we can use a new api to make higher priority :
 
+```
 <link fetchpriority="high" rel="preload" href="path_to_image" as="image" >
+```
 
 ## Convert images to avif
 
