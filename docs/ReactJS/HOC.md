@@ -72,3 +72,26 @@ export const ButtonWithLoggingOnClick = withLoggingOnClick(SimpleButton);
 ```
 
 [https://codesandbox.io/s/hocs-buttons-m45hm4?file=/src/hocs/with-logging-on-click.tsx](https://codesandbox.io/s/hocs-buttons-m45hm4?file=/src/hocs/with-logging-on-click.tsx)
+
+## Another Example:
+
+Abstract Common Logic from multiple components:
+
+```jsx title='Another HOC Example'
+const WithCommonLogic = (ThisComponentWillGainLogic) => {
+  function CommonComponent(props) {
+    useEffect(() => {
+      DoSomething;
+    }, []);
+
+    const commonProps = {
+      abc: abc,
+    };
+    const newProps = { ...props, ...commonProps };
+    return <ThisComponentWillGainLogic {...newProps} />;
+  }
+  return CommonComponent;
+};
+
+export default WithCommonLogic;
+```
