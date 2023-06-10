@@ -118,7 +118,7 @@ jest.mock("path-to-hook", () => () => {
 4.latter on tests you can change the value that will be rendered
 
 mockValue1 = true
-(validateTerms as jest.Mock).mockReturnValue(true);
+(moduleName as jest.Mock).mockReturnValue(true);
 component = render(<Component {...props} />);
 ```
 
