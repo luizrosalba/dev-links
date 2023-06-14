@@ -203,3 +203,7 @@ export default function App() {
   );
 }
 ```
+
+## Using try-catch inside async await
+
+[https://javascript.plainenglish.io/stop-using-try-catch-to-catch-async-await-exceptions-6e0215ace654](https://javascript.plainenglish.io/stop-using-try-catch-to-catch-async-await-exceptions-6e0215ace654)
