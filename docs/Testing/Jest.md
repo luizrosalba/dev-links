@@ -169,3 +169,23 @@ describe('test', () => {
 });
 
 ```
+
+### Testing a hook
+
+```jsx title='renderHook '
+import useHook from "path";
+import { renderHook, waitFor } from "@testing-library/react";
+
+describe("test hook ", () => {
+  it("useHook ", async () => {
+    const { result } = renderHook(() => {
+      const returnedValue = useHook();
+      return returnedValue;
+    });
+    await waitFor(
+      () => expect(result.current.active).toStrictEqual("expectedValue"),
+      { timeout: 2500 }
+    );
+  });
+});
+```
