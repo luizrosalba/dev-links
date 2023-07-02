@@ -138,7 +138,7 @@ jest.mock("path", () => ({
 
 Jest needs to return a function when you ask for it
 
-THE GENERAL SOLUTION
+THE GENERAL SOLUTION - Do not forget to
 
 ```jsx title='Cannot access before initialization'
 const myMock = jest.fn();
@@ -172,7 +172,7 @@ describe('test', () => {
 
 ### Testing a hook
 
-```jsx title='renderHook '
+```jsx title='renderHook and wait until its rendered '
 import useHook from "path";
 import { renderHook, waitFor } from "@testing-library/react";
 
@@ -182,6 +182,11 @@ describe("test hook ", () => {
       const returnedValue = useHook();
       return returnedValue;
     });
+
+    act(() => {
+      fireEvent.click(button);
+    });
+
     await waitFor(
       () => expect(result.current.active).toStrictEqual("expectedValue"),
       { timeout: 2500 }
