@@ -705,7 +705,7 @@ console.log("countRef.current", countRef.current);
 
 ```jsx title='Time consumption'
 const t0 = performance.now();
-useSetTotalPrice(multipleProduct, activeProduct); /// set price on pdp-config-banner, from-price
+useExampleFunction(); /// function to measure
 const t1 = performance.now();
 console.log(`Call took ${t1 - t0} milliseconds.`);
 ```
