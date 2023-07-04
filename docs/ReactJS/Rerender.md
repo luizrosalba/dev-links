@@ -53,12 +53,28 @@ When a component’s state changes, it will re-render itself. Usually, it happen
 State changes are the “root” source of all re-renders.
 
 ```jsx title='1. state changes'
-const Component = () => {
-  const [state, setState] = useState();
-  return {
-    /// will rerender when state changes
-  };
+"use client";
+import Link from "next/link";
+import React, { useCallback, useState } from "react";
+
+const StateChanges = () => {
+  const [count, setCount] = useState(0);
+  console.log("rerenders");
+  return (
+    <React.Fragment>
+      <p>
+        When a component’s state changes, it will re-render itself. Usually, it
+        happens either in a callback or in useEffect hook. State changes are the
+        “root” source of all re-renders.
+      </p>
+      <p>Click on the button and look at console.log</p>
+      <div>Rerender {count}</div>
+      <button onClick={() => setCount(count + 1)}>Click to Add</button>
+    </React.Fragment>
+  );
 };
+
+export default StateChanges;
 ```
 
 ### 2. parent (or children) re-renders
@@ -68,11 +84,38 @@ A component will re-render itself if its parent re-renders. Or, if we look at th
 It always goes “down” the tree: the re-render of a child doesn’t trigger the re-render of a parent. (There are a few caveats and edge cases here, see the full guide for more details: The mystery of React Element, children, parents and re-renders).
 
 ```jsx title='2. parent (or children) re-renders'
+"use client";
+import React, { useCallback, useState } from "react";
+import MdCode from "./mdCode.mdx";
+const Child = () => {
+  console.log("Child rerender");
+  return <div>{"====>"}Child</div>;
+};
+
 const Parent = () => {
+  const [count, setCount] = useState(0);
+  console.log("Parent rerender");
   return (
-    <Child /> /// will rerender when Parent rerenders
+    <>
+      {/* will rerender when Parent rerenders */}
+      <div>Parent</div>
+      <Child />
+      <button onClick={() => setCount(count + 1)}>Click to Add</button>
+    </>
   );
 };
+
+const ParentChanges = () => {
+  console.log("rerenders");
+
+  return (
+    <React.Fragment>
+      <Parent />
+    </React.Fragment>
+  );
+};
+
+export default ParentChanges;
 ```
 
 ### 3. context changes
