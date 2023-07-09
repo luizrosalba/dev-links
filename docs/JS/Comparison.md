@@ -1,6 +1,8 @@
 Equalility in JS :
 [Source](https://codeburst.io/explaining-value-vs-reference-in-javascript-647a975e12a0)
-[Source2](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness)
+[Source2](https://developer.mozilla.org/en-US/docs/Web/JavaScript/
+Equality_comparisons_and_sameness)
+[Code](https://github.com/luizrosalba/js-playground/blob/main/comparison.js)
 
 Javascript has 5 data types that are passed by value: Boolean, null, undefined, String, and Number. We’ll call these primitive types.
 
@@ -23,7 +25,7 @@ console.log(new String("0") === "0"); // false
 console.log(null === undefined); // false
 console.log(new String("0") === null); // false
 console.log(new String("0") === undefined); // false
-console.log({ a: 1 } === { a: 1 }); // true
+console.log({ a: 1 } === { a: 1 }); //false - compared by reference
 console.log(obj1 === obj2); // false - compared by reference
 console.log(obj1 === obj3); // false
 console.log(obj3 === obj4); // false
