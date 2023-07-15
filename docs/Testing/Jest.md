@@ -194,3 +194,36 @@ describe("test hook ", () => {
   });
 });
 ```
+
+### Axios Mock
+
+```jsx title='Mocking axios'
+import MockAdapter from "axios-mock-adapter";
+
+describe("test if data is acquire correctly ", () => {
+  let mockAxios: MockAdapter;
+  beforeEach(() => {
+    mockAxios = new MockAdapter(axios);
+  });
+
+  afterEach(() => {
+    jest.clearAllMocks();
+    mockAxios.reset();
+  });
+
+  it("should get data ", async () => {
+    mockAxios.onGet(/UrlPath/).reply(200, JsonToReply);
+
+    const data = await getData();
+    expect(data).toMatchSnapshot();
+  });
+
+  it("should return reject", async () => {
+    mockAxios.onGet(/UrlPath/).reply(500);
+
+    const data = await getData().catch((e: AxiosError) => {
+      expect(e.response.status).toBe(500);
+    });
+  });
+});
+```
