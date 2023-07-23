@@ -13,3 +13,11 @@
 [https://github.com/steven-tey/dub](https://github.com/steven-tey/dub)
 
 [https://github.com/alan2207/bulletproof-react](https://github.com/alan2207/bulletproof-react)
+
+A collection of awesome things regarding the React ecosystem.
+
+[https://github.com/enaqx/awesome-react](https://github.com/enaqx/awesome-react)
+
+A compilation of React Patterns, techniques, tips and tricks.
+
+[https://github.com/vasanthk/react-bits](https://github.com/vasanthk/react-bits)

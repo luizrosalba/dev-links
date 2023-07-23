@@ -12,6 +12,8 @@
 
 [https://www.jonmellman.com/posts/promise-memoization](https://www.jonmellman.com/posts/promise-memoization)
 
+[https://dev.to/femi_dev/how-to-prevent-unnecessary-react-component-re-rendering-3c08](https://dev.to/femi_dev/how-to-prevent-unnecessary-react-component-re-rendering-3c08)
+
 ## What is re-render in React?
 
 When talking about React performance, there are two major stages that we need to care about:

@@ -2,6 +2,8 @@
 
 [https://react-typescript-cheatsheet.netlify.app/](https://react-typescript-cheatsheet.netlify.app/)
 
+[https://dev.to/lakshmananarumugam/15-advanced-typescript-tips-for-development-5ddj](https://dev.to/lakshmananarumugam/15-advanced-typescript-tips-for-development-5ddj)
+
 ## JS API
 
 [https://www.javascripture.com/](https://www.javascripture.com/)
