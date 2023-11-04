@@ -113,6 +113,30 @@ function printId(id: number | string) {
 }
 ```
 
+### : Intersection Types
+
+A Intersection Type combines the member of two or more types
+
+```ts
+interface Knife {
+  cut();
+}
+interface BottleOpener {
+  openBottle();
+}
+interface Screwdriver {
+  turnScrew();
+}
+type SwissArmyKnife = Knife & BottleOpener & Screwdriver;
+function use(tool: SwissArmyKnife) {
+  console.log("I can do anything!");
+
+  tool.cut();
+  tool.openBottle();
+  tool.turnScrew();
+}
+```
+
 ## Type Aliases
 
 ```ts
@@ -135,6 +159,31 @@ printCoord({ x: 100, y: 100 });
 An interface declaration is another way to name an object type:
 
 Just like when we used a type alias above, the example works just as if we had used an anonymous object type. TypeScript is only concerned with the structure of the value we passed to printCoord - it only cares that it has the expected properties. Being concerned only with the structure and capabilities of types is why we call TypeScript a structurally typed type system.
+
+## Generic Interfaces
+
+Single Parameter
+
+```ts
+interface IResult<T> {
+ wasSuccessful: boolean;
+ error: T;
+}
+var result: IResult<string> = ....
+var error: string = result.error;
+
+```
+
+Multiple Parameter
+
+```ts
+interface IRunnable<T, U> {
+ run(input: T): U;
+}
+var runnable: IRunnable<string, number> = ...
+var input: string;
+var result: number = runnable.run(input)
+```
 
 ## Type x Interface
 
@@ -182,6 +231,12 @@ Sometimes this rule can be too conservative and will disallow more complex coerc
 ```ts
 const a = expr as any as T;
 ```
+
+## String Literal Types
+
+String literal types allow you to specify the exact value a string can have. Together with Type Aliases and Union Types you get a enum-like behavior.
+
+type Species = "cat" | "dog" | "bird";
 
 ## Literal Types
 

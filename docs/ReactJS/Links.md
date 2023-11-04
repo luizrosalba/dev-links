@@ -21,3 +21,7 @@ A collection of awesome things regarding the React ecosystem.
 A compilation of React Patterns, techniques, tips and tricks.
 
 [https://github.com/vasanthk/react-bits](https://github.com/vasanthk/react-bits)
+
+Improve your react code
+
+[https://javascript.plainenglish.io/4-react-tips-to-instantly-improve-your-code-7456e028cfa3](https://javascript.plainenglish.io/4-react-tips-to-instantly-improve-your-code-7456e028cfa3)
