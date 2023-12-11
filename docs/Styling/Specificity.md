@@ -45,3 +45,18 @@ The first declaration has simply an ID selector with a specificity value of 100.
 The second declaration includes an element selector with a value of 1, a class selector of 10, and an attribute selector of 10. 10 + 10 + 1 = 21
 The third declaration is simply a class selector with a specificity value of 10.
 ```
+
+:::danger
+
+!important
+CSS declarations marked as important will override any conflicting declaration, even if the selector is less specific.
+Using importance is considered a bad practice and it should be avoided. It can make css issues harder and make your style sheet less maintainable.
+
+It is better to increase the specificity of the selector such that it is larger than other declarations.
+
+:::
+
+More Specificity Rule
+The universal selector(\*) has no specificity value, which means that anytime another selector conflicts with the universal selector, the selector takes precedence.
+
+If multiple conflicting declacration have the same specificity. The last style declaration wins.
