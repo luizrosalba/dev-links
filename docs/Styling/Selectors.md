@@ -24,6 +24,25 @@ p {
 
 ```
 
+## Group Selectors
+
+You can style many selectors if you like. Just separate the selectors with a comma, as shown in the following example:
+
+```Html
+
+h1, h2, h3 {
+    color: #36C;
+    font-family: helvetica;
+}
+
+Will be selected
+
+<h1>CSS Group Selector (,)</h1>
+<h2>The defined style will apply to h1, h2 and h3 elements.</h2>
+<h3>The order of the list doesn't matter.</h3>
+
+```
+
 ## Combinators
 
 A CSS selector can contain more than one simple selector. Between the simple selectors, we can include a combinator.
@@ -83,9 +102,80 @@ div ~ p {
 }
 ```
 
-## Pseudo-class Selectors
+## Pseudo-class Selectors (:)
 
-## Pseudo-elements selects
+A pseudo-class is used to define a special state of an element.
+
+```HTML
+For example, it can be used to:
+
+Style an element when a user mouses over it
+Style visited and unvisited links differently
+Style an element when it gets focus
+
+syntax :
+
+selector:pseudo-class {
+  property: value;
+}
+
+/* unvisited link */
+a:link {
+  color: #FF0000;
+}
+
+/* visited link */
+a:visited {
+  color: #00FF00;
+}
+
+/* mouse over link */
+a:hover {
+  color: #FF00FF;
+}
+
+
+```
+
+All Pseudo Elements Selectors
+
+check : [https://www.w3schools.com/css/css_pseudo_elements.asp](https://www.w3schools.com/css/css_pseudo_elements.asp)
+
+## Pseudo-elements selectors (::)
+
+A CSS pseudo-element is used to style specified parts of an element.
+
+```HTML
+For example, it can be used to:
+
+Style the first letter, or line, of an element
+Insert content before, or after, the content of an element
+
+syntax :
+
+selector::pseudo-element {
+  property: value;
+}
+
+p::first-line {
+  color: #ff0000;
+  font-variant: small-caps;
+}
+
+```
+
+All Pseudo-elements :
+
+| Selector       | Example         | description                                                  |
+| -------------- | --------------- | ------------------------------------------------------------ |
+| ::after        | p::after        | Insert something after the content of each p element         |
+| ::before       | p::before       | Insert something before the content of each p element        |
+| ::first-letter | p::first-letter | Selects the first letter of each p element                   |
+| ::first-line   | p::first-line   | Selects the first line of each p element                     |
+| ::marker       | ::marker        | Selects the markers of list items                            |
+| ::selection    | p::selection    | Selects the portion of an element that is selected by a user |
+
+Notice the double colon notation - ::first-line versus :first-line
 
 ## Attribute Selectors
 
