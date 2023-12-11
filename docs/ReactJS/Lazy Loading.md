@@ -15,7 +15,7 @@ const componentMapping = {
     DEF: React.lazy (()=> import ('../DEF'))
 }
 
-const Component - componentMapping['DEF']
+const Component = componentMapping['DEF']
 
 return <Component />
 
