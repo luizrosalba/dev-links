@@ -1,5 +1,11 @@
 # Vite
 
+Use
+
+```jsx title='command to start prompt for creating vite project'
+npm create vite@latest
+```
+
 [https://blog.logrocket.com/vite-3-vs-create-react-app-comparison-migration-guide/](https://blog.logrocket.com/vite-3-vs-create-react-app-comparison-migration-guide/)
 
 Vite is a build tool that bridges the gap between current and next-generation web development, providing a faster and more performant experience for developers and modern web projects.
