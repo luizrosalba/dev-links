@@ -25,6 +25,5 @@ Complete reading this excellent text with code examples on [https://blog.devgeni
 </details>
 <details>
   <summary>5- Dependency Inversion Principle (DIP)</summary>
-  <p>The DIP states that high-level modules should not depend on low-level modules, but both should depend on abstractions. In ReactJS, this means that components should not be tightly coupled to each other, but instead should be connected through an abstract interface. This makes the code more flexible and easier to modify.
-</p>
+  <p>The DIP states that high-level modules should not depend on low-level modules, but both should depend on abstractions. In ReactJS, this means that components should not be tightly coupled to each other, but instead should be connected through an abstract interface. This makes the code more flexible and easier to modify.</p>
 </details>
