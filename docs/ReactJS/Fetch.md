@@ -1,8 +1,8 @@
 # Fetching data
 
-```jsx title='Fetch Method'
+```jsx title='Javascript Fetch Method'
 function Fetcher() {
-  const [data, setData] = useState < string > "";
+  const [data, setData] = useState <string> "";
   const [hasError, setHasError] = useState(false); dont do this
   useEffect(() => {
     try {
