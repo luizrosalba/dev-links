@@ -16,6 +16,12 @@ To navigate you can :
 
 - Click on the magnifier icon to search for the tags and keywords. These terms will be stored if you need to recover your search on future visits to this site.
 
+## My projects 
+
+- A code challenge PWA task manager 
+https://luizrosalba.github.io/react-take-home-exercise/
+
+
 ## Want to contribute ?
 
 Fork https://github.com/luizrosalba/dev-links and open a pull request ! I will be glad to review and merge :D
