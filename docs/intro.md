@@ -21,6 +21,11 @@ To navigate you can :
 - A code challenge PWA task manager 
 https://luizrosalba.github.io/react-take-home-exercise/
 
+- A Quick reference web site for css docs 
+https://css-lab-next.vercel.app/
+
+- Extensive docs regarding Front-end
+https://github.com/luizrosalba/resumo
 
 ## Want to contribute ?
 
