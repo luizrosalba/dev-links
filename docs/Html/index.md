@@ -2,16 +2,16 @@
 
 ## Documentation
 
-Learn by example: htmlreference.io is a free guide to HTML. It features all elements and attributes. 
+#### Best docs for HTML : Learn by example: htmlreference.io is a free guide to HTML. It explains all elements and attributes. 
 
-https://htmlreference.io/
-
-
-w3schools docs 
-
-https://www.w3schools.com/html/default.asp
+- https://htmlreference.io/
 
 
-Tags 
+#### Other docs 
 
-[https://allthetags.com/](https://allthetags.com/)
+- [https://www.w3schools.com/html/default.asp](w3schools)
+
+
+#### Tags 
+
+- [https://allthetags.com/](https://allthetags.com/)
