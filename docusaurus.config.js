@@ -13,7 +13,8 @@ const config = {
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
-  
+  organizationName: 'organization',
+  projectName: 'Dev Links 7',
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
   // to replace "en" with "zh-Hans".
@@ -57,9 +58,9 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       algolia: {
-        appId:'79S46UXZK0',
-        indexName:'dev-links-seven',
-        apiKey:'03bb3227d199a6d1bcf770dc0a886ac6',
+        appId: '79S46UXZK0',
+        indexName: 'dev-links-seven',
+        apiKey: '03bb3227d199a6d1bcf770dc0a886ac6',
         contextualSearch: true,
         externalUrlRegex: 'external\\.com|domain\\.com',
         replaceSearchResultPathname: {
@@ -82,8 +83,8 @@ const config = {
             position: 'left',
             label: 'Links',
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
-          {to: 'https://www.buymeacoffee.com/luizrosalba', label: '☕', position: 'left'},
+          { to: '/blog', label: 'Blog', position: 'left' },
+          { to: 'https://www.buymeacoffee.com/luizrosalba', label: '☕', position: 'left' },
           {
             href: 'https://github.com/luizrosalba',
             label: 'GitHub',
