@@ -6,16 +6,16 @@ type FeatureItem = {
   title: string;
   Svg: React.ComponentType<React.ComponentProps<'svg'>>;
   description: JSX.Element;
-  link?:string
+  link?: string
 };
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Link Tool',
+    title: 'Web Development',
     Svg: require('@site/static/img/links.svg').default,
     description: (
       <>
-        A context driven solution for finding good links on web development
+        A context driven solution for finding web development information. You can search
       </>
     ),
     link: '/docs/intro'
@@ -25,14 +25,14 @@ const FeatureList: FeatureItem[] = [
     Svg: require('@site/static/img/blog.svg').default,
     description: (
       <>
-        Content for developers. Find some good posts, tutorials and more ! 
+        Content for developers. Find some good posts, tutorials and more !
       </>
     ),
     link: '/blog'
   }
 ];
 
-function Feature({title, Svg, description, link}: FeatureItem) {
+function Feature({ title, Svg, description, link }: FeatureItem) {
   return (
     <div className={clsx('col col--6')}>
       <div className="text--center">
@@ -52,10 +52,9 @@ export default function HomepageFeatures(): JSX.Element {
   return (
     <section className={styles.features}>
       <div className="container">
-      <strong>Hello Devs !</strong>
-      <br></br>
-     Dev Links 7 is built using <Link href='https://docusaurus.io/' >Docusaurus </Link>
-     and consists in a blog and searchable link tool. Please select where to go: 
+        <strong>Hello Devs !</strong>
+        <br></br>
+        Dev Links 7 is a blog and a place to store web development information using <Link href='https://docusaurus.io/' >Docusaurus </Link>.
         <div className="row">
           {FeatureList.map((props, idx) => (
             <Feature key={idx} {...props} />
